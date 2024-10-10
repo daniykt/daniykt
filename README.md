@@ -12,6 +12,6 @@ Estou muito interessado em **ciência de dados** e como ela pode impactar positi
 🔗 **Conecte-se:**
 - [LinkedIn](https://www.linkedin.com/in/seu-perfil)
 - [Twitter](https://twitter.com/seu-usuario)
-- [Email](mailto:seu-email@example.com)
+- [Email](daniykt7@gmail.com)
 
 Sinta-se à vontade para explorar meus projetos e me acompanhar na minha jornada de aprendizado!
