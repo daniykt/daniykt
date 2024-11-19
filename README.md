@@ -14,7 +14,7 @@
 <img src="https://i.pinimg.com/736x/64/51/21/6451218b8b48c0dbe5c58d327f11a0a7.jpg" width="200">
 
 <!-- Links -->
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/danizsp/)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/daniykt/)
 [![Whatzap](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](Https://wa.me/5516988608371)
 [![G-mail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:daniykt7@gmail.com)
 ---
