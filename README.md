@@ -24,7 +24,7 @@
 
 
 # Formação Acadêmica
--
+- Etec - Curso Desenvolvimento de Sistema
 -
 -
 -
@@ -35,7 +35,7 @@
 
 
 ## Habilidades Linguísticas  
-- 
+- Inglês - básico
 ---
 
 <!-- GIF -->
