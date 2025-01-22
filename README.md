@@ -36,4 +36,5 @@
 ---
 
 <!-- GIF -->
-<img src="https://github.com/VariableBee/VariableBee/assets/77739311/4e9f41af-6b57-49a7-b15a-74322e96b4d7" width="500">
+![download](https://github.com/user-attachments/assets/b9145696-10c2-4a3f-94ae-5f12da0d7d79)
+
