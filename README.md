@@ -1,4 +1,4 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com/?lines=olá,+meu+nome+é+Danilo;)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Hi,+my+name+is+Danilo;)](https://git.io/typing-svg)
     
 ---
 # Skills
