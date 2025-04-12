@@ -6,6 +6,12 @@
     <img src="https://skillicons.dev/icons?i=flutter,mysql,js,nodejs,react," />
 </p>
 
+<div align="center">
+<br><p align="centre"><b>Visitors Count</b></p>  
+<p align="center"><img align="center" src="https://profile-counter.glitch.me/{luisfesantos}/count.svg" /></p> 
+<br>
+</div>
+
 <!--status-->
 ![D GitHub stats](https://github-readme-stats.vercel.app/api?username=daniykt\&show_icons=true\&title_color=fff\&icon_color=79ff97\&text_color=9f9f9f\&bg_color=151515)
 <img src="https://i.pinimg.com/736x/16/84/fe/1684fe8a4db312f1714827f123ddffbe.jpg" width="200">
