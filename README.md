@@ -14,7 +14,6 @@
 
 <!--status-->
 ![D GitHub stats](https://github-readme-stats.vercel.app/api?username=daniykt\&show_icons=true\&title_color=fff\&icon_color=79ff97\&text_color=9f9f9f\&bg_color=151515)
-<img src="https://i.pinimg.com/736x/16/84/fe/1684fe8a4db312f1714827f123ddffbe.jpg" width="200">
 
 
 # Formação Acadêmica
