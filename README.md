@@ -1,4 +1,6 @@
-[![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Hi,+my+name+is+Danilo;)](https://git.io/typing-svg)
+<p align="center">
+    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=435&lines=Hi+my+name+is+Danilo" alt="Typing SVG" /></a>
+</p>
     
 ---
 # Skills
