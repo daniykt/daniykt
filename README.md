@@ -58,12 +58,16 @@
     <tbody>
       <tr>
         <td align="center">
-          <img src="https://readme-stats-fork-mauve.vercel.app/api/?username=daniykt&theme=vision-friendly-dark&show_icons=true&count_private=true" alt="GitHub stats" />
+          <img
+            src="https://readme-stats-fork-mauve.vercel.app/api/?username=daniykt&theme=graywhite&show_icons=true&count_private=true"
+            alt="GitHub stats"
+          />
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+
 
 <br/>
 
