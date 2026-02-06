@@ -20,35 +20,35 @@
 
 <hr />
 
-<!-- Skills compactos -->
+<!-- Skills maiores -->
 <h3 align="center">My Skill</h3>
 
-<table align="center" border="1" cellpadding="6" cellspacing="0">
+<table align="center" border="1" cellpadding="12" cellspacing="0">
   <tr>
-    <!-- Ícones apenas (compacto) -->
-    <td align="center" width="96">
-      <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge" alt="HTML5" width="88" />
+    <td align="center" width="140">
+      <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge" alt="HTML5" width="120" />
     </td>
-    <td align="center" width="96">
-      <img src="https://img.shields.io/badge/CSS-1572B6?logo=css&logoColor=white&style=for-the-badge" alt="CSS" width="88" />
+    <td align="center" width="140">
+      <img src="https://img.shields.io/badge/CSS-1572B6?logo=css&logoColor=white&style=for-the-badge" alt="CSS" width="120" />
     </td>
-    <td align="center" width="96">
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge" alt="JavaScript" width="88" />
+    <td align="center" width="140">
+      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge" alt="JavaScript" width="120" />
     </td>
-    <td align="center" width="96">
-      <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black&style=for-the-badge" alt="React" width="88" />
+    <td align="center" width="140">
+      <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black&style=for-the-badge" alt="React" width="120" />
     </td>
-    <td align="center" width="96">
-      <img src="https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=black&style=for-the-badge" alt="Tailwind" width="88" />
+    <td align="center" width="140">
+      <img src="https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=black&style=for-the-badge" alt="Tailwind" width="120" />
     </td>
-    <td align="center" width="96">
-      <img src="https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white&style=for-the-badge" alt="Node.js" width="88" />
+    <td align="center" width="140">
+      <img src="https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white&style=for-the-badge" alt="Node.js" width="120" />
     </td>
-    <td align="center" width="96">
-      <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white&style=for-the-badge" alt="GitHub" width="88" />
+    <td align="center" width="140">
+      <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white&style=for-the-badge" alt="GitHub" width="120" />
     </td>
   </tr>
 </table>
+
 
 <hr />
 
