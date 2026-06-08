@@ -4,54 +4,32 @@
     <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=435&lines=Hi%2C+my+name+is+Danilo;Full+Stack+Developer" alt="Typing SVG" />
   </a>
 </p>
-
 <!-- Badges (centralizado) -->
 <div align="center">
-  <img alt="Linux" src="https://img.shields.io/badge/🤓_☝️-Linux_User-ffffff?style=flat&logo=archlinux&logoColor=white" />
-  &nbsp;&nbsp;
   <img src="https://visitor-badge.laobi.icu/badge?page_id=daniykt.daniykt&" alt="Visitors" />
   &nbsp;&nbsp;
   <a href="https://www.linkedin.com/in/-dsilva/" target="_blank">
     <img alt="LinkedIn" src="https://img.shields.io/badge/-LinkedIn-0A66C2?logo=linkedin&logoColor=white&style=flat" />
   </a>
 </div>
-
 <br/>
-
 <hr />
 
-<!-- Skills maiores -->
-<h3 align="center">My Skill</h3>
+## `stack`
+<div align="center">
 
-<table align="center" border="1" cellpadding="12" cellspacing="0">
-  <tr>
-    <td align="center" width="140">
-      <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge" alt="HTML5" width="120" />
-    </td>
-    <td align="center" width="140">
-      <img src="https://img.shields.io/badge/CSS-1572B6?logo=css&logoColor=white&style=for-the-badge" alt="CSS" width="120" />
-    </td>
-    <td align="center" width="140">
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge" alt="JavaScript" width="120" />
-    </td>
-    <td align="center" width="140">
-      <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black&style=for-the-badge" alt="React" width="120" />
-    </td>
-    <td align="center" width="140">
-      <img src="https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=black&style=for-the-badge" alt="Tailwind" width="120" />
-    </td>
-    <td align="center" width="140">
-      <img src="https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white&style=for-the-badge" alt="Node.js" width="120" />
-    </td>
-    <td align="center" width="140">
-      <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white&style=for-the-badge" alt="GitHub" width="120" />
-    </td>
-  </tr>
-</table>
+![HTML5](https://img.shields.io/badge/HTML5-0d0d0d?style=for-the-badge&logo=html5&logoColor=e34f26)
+![CSS3](https://img.shields.io/badge/CSS3-0d0d0d?style=for-the-badge&logo=css3&logoColor=1572b6)
+![JavaScript](https://img.shields.io/badge/JavaScript-0d0d0d?style=for-the-badge&logo=javascript&logoColor=f7df1e)
+![React](https://img.shields.io/badge/React-0d0d0d?style=for-the-badge&logo=react&logoColor=61dafb)
+![Tailwind](https://img.shields.io/badge/Tailwind-0d0d0d?style=for-the-badge&logo=tailwindcss&logoColor=06b6d4)
+![Node.js](https://img.shields.io/badge/Node.js-0d0d0d?style=for-the-badge&logo=nodedotjs&logoColor=339933)
+![Figma](https://img.shields.io/badge/Figma-0d0d0d?style=for-the-badge&logo=figma&logoColor=f24e1e)
+![GitHub](https://img.shields.io/badge/GitHub-0d0d0d?style=for-the-badge&logo=github&logoColor=ffffff)
 
+</div>
 
 <hr />
-
 <!-- GitHub stats (centralizado) -->
 <div align="center">
   <table border="0">
@@ -67,12 +45,19 @@
     </tbody>
   </table>
 </div>
-
-
 <br/>
-
 <hr />
 
+## `contribution activity`
+<!-- Activity Graph -->
+<div align="center">
+  <img
+    src="https://github-readme-activity-graph.vercel.app/graph?username=daniykt&theme=github-compact&hide_border=true&area=true"
+    alt="Activity Graph"
+    width="100%"
+  />
+</div>
+<hr />
 <!-- Contribution snake -->
 <div align="center">
   <picture>
