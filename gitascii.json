@@ -31689,7 +31689,13 @@
         "dotColor": "#4d3a66",
         "valueColor": "#e6fbfb",
         "statsValColor": "#55ffff",
-        "dividerColor": "#2d1f3f"
+        "dividerColor": "#2d1f3f",
+        "showTitle": false,
+        "showStatus": true,
+        "showTimezone": false,
+        "showGithub": true,
+        "customEmail": "daniykt7@gmail.com",
+        "borderColor": "#212830"
       },
       "locked": false,
       "visible": true,
@@ -31701,8 +31707,8 @@
       "widgetId": "views-counter",
       "name": "Views-counter Widget",
       "position": {
-        "x": 568,
-        "y": 418
+        "x": 584,
+        "y": 434
       },
       "size": {
         "width": 200,
@@ -31718,8 +31724,8 @@
       "widgetId": "premium-ascii-coding-velocity",
       "name": "Premium-ascii-coding-velocity Widget",
       "position": {
-        "x": 160,
-        "y": 389
+        "x": 184,
+        "y": 394
       },
       "size": {
         "width": 400,
@@ -31767,7 +31773,9 @@
         "width": 800,
         "height": 90
       },
-      "config": {},
+      "config": {
+        "borderColor": "#212830"
+      },
       "locked": false,
       "visible": true,
       "zIndex": 7,
@@ -31778,7 +31786,7 @@
       "widgetId": "custom-image",
       "name": "Custom-image Widget",
       "position": {
-        "x": 6,
+        "x": 32,
         "y": 389
       },
       "size": {
@@ -31802,8 +31810,8 @@
   "globalStyles": {
     "backgroundColor": "transparent",
     "textColor": "#e5e5e5",
-    "accentColor": "#f0f0f0",
-    "borderColor": "#252525",
+    "accentColor": "#ffffff",
+    "borderColor": "transparent",
     "fontFamily": "'JetBrains Mono', monospace",
     "borderRadius": 0,
     "padding": 24,
