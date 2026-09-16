@@ -1,28 +1,17 @@
-<!-- Header typing -->
+<!-- Arte no topo -->
 <p align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=435&lines=Hi%2C+my+name+is+Danilo;Full+Stack+Developer" alt="Typing SVG" />
-  </a>
+  <img src="./arte.gif" alt="Arte" width="50%" />
 </p>
-
-<!-- Badges (centralizado) -->
-<div align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=daniykt.daniykt&" alt="Visitors" />
-  &nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/-dsilva/" target="_blank">
-    <img alt="LinkedIn" src="https://img.shields.io/badge/-LinkedIn-0A66C2?logo=linkedin&logoColor=white&style=flat" />
-  </a>
-</div>
 
 <br/>
 <hr />
 
-<!-- About me: imagem + card terminal -->
+<!-- About me: eyes + card terminal -->
 <table>
 <tr>
 <td valign="middle" width="35%" align="center">
 
-<img src="https://raw.githubusercontent.com/daniykt/daniykt/main/assets/profile.png" alt="Profile" width="100%"/>
+<img src="./eyes.jpg" alt="Eyes" width="100%"/>
 
 </td>
 <td valign="middle" width="65%">
@@ -52,6 +41,22 @@
 </table>
 
 <hr />
+
+<!-- Header typing -->
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&width=435&lines=Hi%2C+my+name+is+Danilo;Full+Stack+Developer" alt="Typing SVG" />
+  </a>
+</p>
+
+<!-- Badges (centralizado) -->
+<div align="center">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=daniykt.daniykt&" alt="Visitors" />
+  &nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/-dsilva/" target="_blank">
+    <img alt="LinkedIn" src="https://img.shields.io/badge/-LinkedIn-0A66C2?logo=linkedin&logoColor=white&style=flat" />
+  </a>
+</div>
 
 <!-- GitHub stats (centralizado) -->
 <div align="center">
