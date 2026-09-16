@@ -1,6 +1,6 @@
 <!-- Arte no topo -->
 <p align="center">
-  <img src="./arte.gif" alt="Arte" width="50%" />
+  <img src="./arte.gif" alt="Arte" width="100%" />
 </p>
 
 <br/>
