@@ -40,7 +40,7 @@
 ## <code>// RUN_02 ::</code> CHARACTER SHEET
 
 <!-- TODO: escolher o personagem e gerar assets/char.png (scripts/halftone.py) -->
-<img align="right" width="240" src="./assets/D.png" alt="Personagem" />
+<img align="right" width="240" src="./assets/D.jpg" alt="Personagem" />
 
 > <!-- TODO: citação escolhida por você -->
 
