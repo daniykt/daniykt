@@ -1,6 +1,6 @@
 <!-- Arte no topo -->
 <p align="center">
-  <img src="./arte.gif" alt="Arte" width="100%" />
+  <img src="./assets/arte.gif" alt="Arte" width="100%" />
 </p>
 <hr />
 
@@ -9,12 +9,12 @@
 <tr>
 <td valign="middle" width="35%" align="center">
 
-<img src="./eyes.jpg" alt="Eyes" width="100%"/>
+<img src="./assets/eyes.jpg" alt="Eyes" width="100%"/>
 
 </td>
 <td valign="middle" width="65%">
 
-<img src="./terminal-card.svg" alt="About me" width="100%" />
+<img src="./assets/terminal-card.svg" alt="About me" width="100%" />
 
 </td>
 </tr>

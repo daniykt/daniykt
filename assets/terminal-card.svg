@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 540" font-family="ui-monospace, 'Fira Code', 'JetBrains Mono', 'Cascadia Code', Menlo, Consolas, monospace">
+  <defs>
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="2" height="3">
+      <rect width="2" height="1" fill="#ffffff" opacity="0.025"/>
+    </pattern>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="540" fill="#0a0a0f"/>
+  <rect width="700" height="540" fill="url(#scanlines)"/>
+
+  <!-- Chrome frame — bordas quebradas estilo CDPR 2077 -->
+  <polyline points="10,30 10,10 38,10" stroke="#FF003C" stroke-width="1.5" fill="none"/>
+  <line x1="38" y1="10" x2="662" y2="10" stroke="#FF003C" stroke-width="1.5"/>
+  <polyline points="662,10 690,10 690,30" stroke="#FF003C" stroke-width="1.5" fill="none"/>
+  <line x1="690" y1="30" x2="690" y2="510" stroke="#FF003C" stroke-width="1.5"/>
+  <polyline points="690,510 690,530 662,530" stroke="#FF003C" stroke-width="1.5" fill="none"/>
+  <line x1="662" y1="530" x2="38" y2="530" stroke="#FF003C" stroke-width="1.5"/>
+  <polyline points="38,530 10,530 10,510" stroke="#FF003C" stroke-width="1.5" fill="none"/>
+  <line x1="10" y1="510" x2="10" y2="30" stroke="#FF003C" stroke-width="1.5"/>
+
+  <!-- Accent corner marks (yellow HUD) -->
+  <polyline points="22,22 22,16 28,16" stroke="#FCEE09" stroke-width="1" fill="none"/>
+  <polyline points="678,22 678,16 672,16" stroke="#FCEE09" stroke-width="1" fill="none"/>
+  <polyline points="22,518 22,524 28,524" stroke="#FCEE09" stroke-width="1" fill="none"/>
+  <polyline points="678,518 678,524 672,524" stroke="#FCEE09" stroke-width="1" fill="none"/>
+
+  <!-- Header: terminal prompt -->
+  <text x="36" y="46" fill="#FCEE09" font-size="14" font-weight="700" filter="url(#glow)">daniykt@nightcity:~$</text>
+  <text x="208" y="46" fill="#5a5a65" font-size="12">// uplink stable · signal strong</text>
+  <rect x="665" y="36" width="8" height="14" fill="#FCEE09" opacity="0.9"/>
+
+  <!-- Divider -->
+  <line x1="36" y1="60" x2="664" y2="60" stroke="#2a2a35" stroke-width="1"/>
+
+  <!-- Bio -->
+  <text x="36" y="86" fill="#e8e8e8" font-size="13">Sou <tspan fill="#FCEE09" font-weight="700">Full-Stack</tspan> focado em <tspan fill="#FCEE09" font-weight="700">front-end</tspan> e <tspan fill="#FCEE09" font-weight="700">design</tspan>,</text>
+  <text x="36" y="106" fill="#e8e8e8" font-size="13">apaixonado por <tspan fill="#FF003C" font-weight="700">arte</tspan>.</text>
+
+  <!-- SECTION: CHROME -->
+  <text x="36" y="140" fill="#FF003C" font-size="13" font-weight="700">┌─ // CHROME ──────────────────────────────────────</text>
+  <text x="36" y="162" fill="#e8e8e8" font-size="13"><tspan fill="#FCEE09" font-weight="700">Frontend:</tspan>  HTML · CSS · JavaScript · React · Tailwind</text>
+  <text x="36" y="182" fill="#e8e8e8" font-size="13"><tspan fill="#FCEE09" font-weight="700">Backend:</tspan>   Node.js · PostgreSQL · Supabase</text>
+  <text x="36" y="202" fill="#e8e8e8" font-size="13"><tspan fill="#FCEE09" font-weight="700">Mobile:</tspan>    Dart</text>
+  <text x="36" y="222" fill="#e8e8e8" font-size="13"><tspan fill="#FCEE09" font-weight="700">Tools:</tspan>     Figma · GitHub · Git</text>
+
+  <!-- SECTION: GIGS (projetos detalhados) -->
+  <text x="36" y="258" fill="#FF003C" font-size="13" font-weight="700">┌─ // GIGS ─────────────────────────────── 3 active · 1 soon</text>
+
+  <!-- Mosaic — destaque (⚡ live gig) -->
+  <text x="36" y="282" fill="#FCEE09" font-size="13" font-weight="700">⚡ </text>
+  <text x="52" y="282" fill="#FCEE09" font-size="13" font-weight="700">Mosaic</text>
+  <text x="104" y="282" fill="#e8e8e8" font-size="12">— portfólio visual, alternativa ao Linktree</text>
+  <text x="52" y="298" fill="#5a5a65" font-size="11">└─ react · vite · ts · tailwind · MVP 31/10/26 · ████████░░ 80%</text>
+
+  <!-- War Editor -->
+  <text x="36" y="322" fill="#FCEE09" font-size="13">★ </text>
+  <text x="52" y="322" fill="#e8e8e8" font-size="13" font-weight="700">War-editor-Portfolio</text>
+  <text x="206" y="322" fill="#e8e8e8" font-size="12">— redesign cinemático</text>
+  <text x="52" y="338" fill="#5a5a65" font-size="11">└─ figma → react · estudo solo · ██████░░░░ 60%</text>
+
+  <!-- Pesque & Fale -->
+  <text x="36" y="362" fill="#FCEE09" font-size="13">★ </text>
+  <text x="52" y="362" fill="#e8e8e8" font-size="13" font-weight="700">Pesque-Fale</text>
+  <text x="140" y="362" fill="#e8e8e8" font-size="12">— rede social p/ pescadores</text>
+  <text x="52" y="378" fill="#5a5a65" font-size="11">└─ react · firebase · time de 5 · ████░░░░░░ 40%</text>
+
+  <!-- Portfolio -->
+  <text x="36" y="402" fill="#FCEE09" font-size="13">★ </text>
+  <text x="52" y="402" fill="#e8e8e8" font-size="13" font-weight="700">Portfolio</text>
+  <text x="124" y="402" fill="#5a5a65" font-size="12">— daniykt.dev · [soon]</text>
+
+  <!-- SECTION: COMMS -->
+  <text x="36" y="436" fill="#FF003C" font-size="13" font-weight="700">┌─ // COMMS ───────────────────────────────────────</text>
+  <text x="36" y="458" fill="#e8e8e8" font-size="13"><tspan fill="#FCEE09" font-weight="700">Email:</tspan>     daniykt7@gmail.com</text>
+  <text x="36" y="478" fill="#e8e8e8" font-size="13"><tspan fill="#FCEE09" font-weight="700">LinkedIn:</tspan>  linkedin.com/in/-dsilva</text>
+
+  <!-- Footer -->
+  <line x1="36" y1="500" x2="664" y2="500" stroke="#2a2a35" stroke-width="1"/>
+  <text x="36" y="518" fill="#5a5a65" font-size="11">// "the ones who do go legend. never die."  —  maine</text>
+</svg>
