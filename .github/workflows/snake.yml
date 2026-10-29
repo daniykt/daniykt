@@ -1,0 +1,35 @@
+name: Generate snake animation
+
+on:
+  schedule: # a cada 12 horas
+    - cron: "0 */12 * * *"
+
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: generate snake svgs (paleta edgerunners)
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake-dark.svg?palette=github-dark&color_snake=#FF003C&color_dots=#161b22,#3d3800,#7a6f00,#c2b400,#FCEE09
+            dist/snake-light.svg?palette=github-light&color_snake=#FF003C&color_dots=#ebedf0,#fff7a8,#f5e44a,#e0cc00,#FF003C
+
+      - name: push snake svgs to the output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
