@@ -26,7 +26,7 @@
 <td valign="middle" width="35%" align="center">
 
 <!-- TODO: trocar por ./assets/eyes.png depois de gerar o halftone (scripts/halftone.py) -->
-<img src="./assets/eyes.jpg" alt="Eyes" width="100%"/>
+<img src="./assets/fundoAmarelo.jpg" alt="Eyes" width="100%"/>
 
 </td>
 <td valign="middle" width="65%">
