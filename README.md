@@ -39,7 +39,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/chrome.svg" width="100%" alt="RUN_05 Chrome instalado. Uso React + TypeScript pra interface e Tailwind pra estilo. Abro o Figma antes do editor, e quando o projeto precisa de back-end recorro a Node ou Supabase. Ripperdoc // cyberware inventory — Frontal cortex: HTML, CSS, JavaScript, TypeScript, React, Vite, Tailwind. Nervous system: Node.js, Supabase, PostgreSQL. Ocular system: Figma, Git. Install queue (na fila): Next.js, Vitest, Acessibilidade." />
+  <img src="./assets/chrome.svg" width="100%" alt="RUN_05 Chrome instalado. Ripperdoc // cyberware inventory — Frontal cortex: HTML, CSS, JavaScript, TypeScript, React, Vite, Tailwind. Nervous system: Node.js, Supabase, PostgreSQL. Ocular system: Figma, Git. Install queue (na fila): Next.js, Vitest, Acessibilidade." />
 </p>
 
 <p align="center">

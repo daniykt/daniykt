@@ -342,14 +342,9 @@ def gig_card(P, i, h_min):
 # ───────── chrome ─────────
 
 def chrome(P):
-    """RUN_05: prosa da stack, divisória e o inventário de cyberware com os logos."""
+    """RUN_05: inventário de cyberware com os logos."""
     F, c = tema.Fontes(), []
-    linhas, y = rico_linhas(F, PAD, 38, P['chrome_texto'], 13, W - 2 * PAD, passo=21)
-    c += linhas
-    y += 22
-    c.append(f'<line x1="{PAD}" y1="{y + .5}" x2="{W - PAD}" y2="{y + .5}" stroke="{VAZIO}"/>')
-
-    y += 36
+    y = 38
     c.append(F.texto(PAD, y, 'RIPPERDOC // CYBERWARE INVENTORY', 14, 800, AMARELO, espaco=1))
     lx = W - PAD
     c.append(F.texto(lx, y, 'na fila', 11, cor=TEXTO3, anchor='end'))
@@ -384,10 +379,9 @@ def chrome(P):
         y += 100
     h = y - 14 + PAD
 
-    prosa = re.sub(r'\*\*|__', '', P['chrome_texto'])
     grupos = ' '.join(f'{g["grupo"]}: {", ".join(g["itens"])}.' for g in P['chrome'])
     return tema.card_secao('RUN_05', 'CHROME INSTALADO', 5, ''.join(c), h, F,
-                           f'RUN_05 Chrome instalado. {prosa} Ripperdoc // cyberware inventory — {grupos}')
+                           f'RUN_05 Chrome instalado. Ripperdoc // cyberware inventory — {grupos}')
 
 
 # ───────── formação ─────────
