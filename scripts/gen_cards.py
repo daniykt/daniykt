@@ -3,15 +3,16 @@
 
 Lê scripts/perfil.json e grava em assets/:
   identity.svg        RUN_01: imagem + terminal (bio, chrome, comms)
-  charsheet.svg       retrato + ficha + atributos
-  journal.svg         foco do momento como quest log
-  gig-<id>.svg        um card por projeto (o primeiro grande, os outros pela metade)
-  chrome.svg          inventário de tecnologias com os logos (simple-icons, CC0)
-  formacao.svg        formação + slot vazio pra certificados
+  charsheet.svg       RUN_02: retrato + ficha + atributos
+  journal.svg         RUN_03: foco do momento como quest log
+  gigs-titulo.svg     RUN_04: só a barra de título
+  gig-<id>.svg        um card por projeto (o primeiro com 840, os outros com 412)
+  chrome.svg          RUN_05: prosa + inventário de tecnologias com os logos (simple-icons, CC0)
+  formacao.svg        RUN_06: formação + slot vazio pra certificados
 
-Todos os cards têm 840px de largura (os gigs secundários, 412), fundo #0a0a0f
-e moldura_hud. Valor 'TODO: x' do perfil.json aparece como '[x]'.
-Print que não existe vira um placeholder listrado com '[print do projeto]'.
+Cada seção é um SVG só, com a barra de título dentro da moldura (tema.card_secao).
+Valor 'TODO: x' do perfil.json aparece como '[x]'. Imagem que não existe vira
+um placeholder listrado com o rótulo entre colchetes.
 
 uso:  python3 scripts/gen_cards.py
 """
@@ -28,7 +29,8 @@ PERFIL = os.path.join(tema.HERE, 'perfil.json')
 ICONES = os.path.join(tema.HERE, 'icones')
 
 W = 840
-W_GIG, H_GIG, H_PRINT = 412, 330, 150   # gigs secundários
+W_GIG = 412                              # gigs secundários (dois lado a lado)
+NUMERO = '#1e1e28'                       # numeração decorativa dos gigs (marca d'água, fora da checagem de contraste)
 CLARO = tema.TEXTO2                      # secundário: objetivos, citação
 APAGADO = tema.TEXTO3                    # terciário: comentários do terminal
 SLOT = '#101018'                         # fundo dos slots do chrome
@@ -274,11 +276,18 @@ def journal(P):
 
 # ───────── gigs ─────────
 
+def gigs_titulo():
+    """RUN_04: só a barra de título. Os gigs ficam em cards separados porque link
+    dentro de SVG não funciona no README (cada card vai num <a> próprio)."""
+    F = tema.Fontes()
+    return tema.card_secao('RUN_04', 'GIGS EM DESTAQUE', 4, '', 0, F, 'RUN_04 Gigs em destaque.')
+
+
 def gig_texto(F, g, n, x, y, w):
     """Cabeçalho, nome, descrição e chips. Devolve (elementos, y do fim dos chips)."""
     c = [F.texto(x, y, f'GIG {n:02d} · {val(g["equipe"])} · {val(g["tag"])}', 11, 700, MAGENTA, espaco=2)]
-    y += 34
-    c.append(F.texto(x, y, val(g['nome']).upper(), 28, 800, AMARELO))
+    y += 38
+    c.append(F.texto(x, y, val(g['nome']).upper(), 30, 800, AMARELO))
     y += 6
     for linha in tema.quebrar(val(g['descricao']), 13, w):
         y += 19
@@ -286,7 +295,7 @@ def gig_texto(F, g, n, x, y, w):
     if 'minha_parte' in g:
         for linha in tema.quebrar('Minha parte: ' + val(g['minha_parte']), 12, w):
             y += 20
-            c.append(F.texto(x, y, linha, 12, cor=CLARO))
+            c.append(F.texto(x, y, linha, 12, cor=TEXTO2))
     y += 14
     cx = x
     for s in g['stack']:
@@ -300,23 +309,29 @@ def gig_texto(F, g, n, x, y, w):
 
 
 def gig_card(P, i, h_min):
-    """i=0: card grande 840x240 com print à esquerda; senão 412 de largura com print em cima."""
+    """i=0: card de 840 com coluna de 170px à direita (número + link);
+    senão 412 de largura com o número no canto superior direito e o link embaixo."""
     F, g = tema.Fontes(), P['gigs'][i]
-    grande = i == 0
-    if grande:
-        w, (tx, ty, tw) = W, (410, 44, W - 410 - 30)
-        foto = imagem(F, g['print'], 0, 0, 380, h_min, '[print do projeto]', 'ph-print')
+    n = f'{i + 1:02d}'
+    if i == 0:
+        w, col = W, 170
+        c, fim = gig_texto(F, g, i + 1, PAD, 40, W - col - 2 * PAD)
+        H = max(h_min, fim + PAD + 4)
+        cx = W - col / 2
+        c.append(f'<line x1="{W - col + .5}" y1="{PAD}" x2="{W - col + .5}" y2="{H - PAD}" stroke="{VAZIO}"/>')
+        c.append(F.texto(cx, 98, n, 64, 800, NUMERO, anchor='middle', fundo=None))
+        c.append(F.texto(cx, H - 30, 'ABRIR REPO ↗', 12, 700, AMARELO, anchor='middle', espaco=2))
     else:
-        w, (tx, ty, tw) = W_GIG, (24, H_PRINT + 28, W_GIG - 48)
-        foto = imagem(F, g['print'], 0, 0, W_GIG, H_PRINT, '[print do projeto]', 'ph-print')
-    c, fim = gig_texto(F, g, i + 1, tx, ty, tw)
-    H = max(h_min, fim + 50)
-    c.append(F.texto(tx, H - 24, 'ABRIR REPO ↗', 12, 700, AMARELO, espaco=2))
+        w = W_GIG
+        c, fim = gig_texto(F, g, i + 1, PAD, 40, W_GIG - 2 * PAD)
+        H = max(h_min, fim + 62)
+        c.append(F.texto(W_GIG - PAD, 46, n, 26, 800, NUMERO, anchor='end', fundo=None))
+        c.append(F.texto(PAD, H - 24, 'ABRIR REPO ↗', 12, 700, AMARELO, espaco=2))
 
-    corpo = fundo(w, H) + foto + tema.moldura_hud(0, 0, w, H, MAGENTA if grande else BORDA_SEC) + ''.join(c)
+    corpo = fundo(w, H) + ''.join(c) + tema.moldura_hud(0, 0, w, H, BORDA_SEC)
     extra = f' Minha parte: {val(g["minha_parte"])}.' if 'minha_parte' in g else ''
-    titulo = (f'Gig {i + 1:02d}, {val(g["equipe"]).lower()}, {val(g["tag"]).lower()}: {val(g["nome"])}. '
-              f'{val(g["descricao"])}{extra} Stack: {", ".join(g["stack"])}. Abrir repositório.')
+    titulo = (f'Gig {n} · {val(g["equipe"])} · {val(g["tag"])}: {val(g["nome"])}. '
+              f'{val(g["descricao"])}{extra} Stack: {", ".join(g["stack"])}. Abrir repo.')
     return tema.svg(w, H, corpo, F, titulo), H
 
 
@@ -432,9 +447,10 @@ def main():
     tema.salvar('journal.svg', journal(P))
 
     gigs = P['gigs']
-    s, _ = gig_card(P, 0, 240)
+    tema.salvar('gigs-titulo.svg', gigs_titulo())
+    s, _ = gig_card(P, 0, 180)
     tema.salvar(f'gig-{gigs[0]["id"]}.svg', s)
-    h = max([H_GIG] + [gig_card(P, i, H_GIG)[1] for i in range(1, len(gigs))])   # mesma altura lado a lado
+    h = max(gig_card(P, i, 0)[1] for i in range(1, len(gigs)))   # mesma altura lado a lado
     for i in range(1, len(gigs)):
         tema.salvar(f'gig-{gigs[i]["id"]}.svg', gig_card(P, i, h)[0])
 
