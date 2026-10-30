@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/charsheet.svg" width="100%" alt="RUN_02 Character sheet. DANILO, Netrunner · Front-end, SUBJ_0831, ID verified. Estudante de DSM na FATEC Matão. Entrei na programação pela porta do design e hoje vivo entre o Figma e o VS Code. Origin Matão, SP; crew FATEC DSM · 4º semestre; cyberware Figma · React · Tailwind; status: Recusa virar cyberpsycho. Attributes: INT 6/10, TECH 5/10, COOL 7/10. Citação: [sua citação]." />
+  <img src="./assets/charsheet.svg" width="100%" alt="RUN_02 Character sheet. DANILO, Netrunner · Front-end, SUBJ_0831, ID verified. Estudante de DSM na FATEC Matão. Caí na programação por acaso, acabei me apaixonando e hoje desenho pensando em UI/UX e transformo isso em código. Origin Matão, SP; crew FATEC DSM · 4º semestre; cyberware Figma · React · Tailwind; status: Recusa virar cyberpsycho. Attributes: INT 6/10, TECH 5/10, COOL 7/10. Citação: “Transformo design em experiência, e experiência em código.”" />
 </p>
 
 <p align="center">

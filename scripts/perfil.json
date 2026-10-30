@@ -4,7 +4,7 @@
   "nome": "DANILO",
   "classe": "NETRUNNER · FRONT-END",
   "bio": "Sou **Full-Stack** focado em **front-end** e **design**, apaixonado por __arte__.",
-  "bio_curta": "Estudante de DSM na FATEC Matão. Entrei na programação pela porta do design e hoje vivo entre o Figma e o VS Code.",
+  "bio_curta": "Estudante de DSM na FATEC Matão. Caí na programação por acaso, acabei me apaixonando e hoje desenho pensando em UI/UX e transformo isso em código.",
 
   "atributos": {
     "_todo": "TODO: valores provisórios, eu ajusto",
@@ -12,7 +12,7 @@
     "TECH": 5,
     "COOL": 7
   },
-  "citacao": "TODO: sua citação",
+  "citacao": "Transformo design em experiência, e experiência em código.",
 
   "personagem": {
     "imagem": "assets/D.jpg",
