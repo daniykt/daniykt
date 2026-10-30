@@ -84,12 +84,9 @@
       "fim": 2027,
       "semestre": 4,
       "semestres": 6
-    },
-    {
-      "status": "slot",
-      "texto": "TODO: cursos e certificados entram aqui"
     }
   ],
+  "certificados": [],
 
   "terminal": {
     "imagem": "assets/fundoAmarelo.jpg",

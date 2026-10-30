@@ -386,11 +386,71 @@ def chrome(P):
 
 # ───────── formação ─────────
 
+SHARD_BLOCOS, SHARD_CICLO = 12, 3   # barra de loading: blocos e duração do ciclo (s)
+LINHA_CERT = 26
+
+
+def caixa_h(certificados):
+    return 20 + len(certificados) * LINHA_CERT if certificados else 50
+
+
+def caixa_tracejada(y, h):
+    return (f'<rect x="{PAD + .5}" y="{y + .5}" width="{W - 2 * PAD - 1}" height="{h - 1}" fill="none" '
+            f'stroke="{CINZA}" stroke-opacity=".6" stroke-dasharray="6 4"/>')
+
+
+def data_shard(F, y):
+    """Certificados ainda vazios: 'DATA SHARD  decrypting certificados.shard █   ▮▮▮▯▯▯ LOADING'.
+    O cursor pisca (1s) e os blocos acendem um por um e reiniciam (SHARD_CICLO s)."""
+    base = y + 30
+    c = [caixa_tracejada(y, 50)]
+    x = PAD + 20
+    c.append(F.texto(x, base, 'DATA SHARD', 12, 700, MAGENTA, espaco=2))
+    x += largura('DATA SHARD', 12, 700, 2) + 18
+    txt = 'decrypting certificados.shard'
+    c.append(F.texto(x, base, txt, 12, cor=TEXTO2))
+    c.append(F.texto(x + largura(txt, 12) + 6, base, '█', 12, cor=AMARELO, extra=' class="cursor"'))
+
+    fim = W - PAD - 20
+    c.append(F.texto(fim, base, 'LOADING', 11, 700, AMARELO, anchor='end', espaco=2))
+    bx = fim - largura('LOADING', 11, 700, 2) - 14 - (SHARD_BLOCOS * 13 - 3)
+    css = ['.cursor { animation: cursor 1s infinite steps(1); }',
+           '@keyframes cursor { 50% { opacity: 0; } }']
+    for i in range(SHARD_BLOCOS):
+        x_i = bx + i * 13
+        c.append(f'<rect x="{x_i:g}" y="{base - 9}" width="10" height="9" fill="{VAZIO}"/>')
+        c.append(f'<rect x="{x_i:g}" y="{base - 9}" width="10" height="9" fill="{AMARELO}" class="b{i}"/>')
+        p = (i + 1) / (SHARD_BLOCOS + 1) * 100
+        css.append(f'.b{i} {{ opacity: 0; animation: b{i} {SHARD_CICLO}s infinite steps(1); }}')
+        css.append(f'@keyframes b{i} {{ 0% {{ opacity: 0; }} {p:.1f}%, 100% {{ opacity: 1; }} }}')
+    return c, '\n'.join(css) + '\n'
+
+
+def certificados_lista(F, certificados, y):
+    """Um certificado por linha: quadrado verde (concluído) + nome + 'emissor · ano' à direita."""
+    c, nomes = [caixa_tracejada(y, caixa_h(certificados))], []
+    for i, cert in enumerate(certificados):
+        if isinstance(cert, str):
+            nome, info = val(cert), ''
+        else:
+            nome = val(cert['nome'])
+            info = ' · '.join(str(val(cert[k])) for k in ('emissor', 'ano') if cert.get(k))
+        base = y + 28 + i * LINHA_CERT
+        c.append(f'<rect x="{PAD + 20}" y="{base - 9}" width="9" height="9" fill="{VERDE}"/>')
+        c.append(F.texto(PAD + 38, base, nome, 13, 700, TEXTO))
+        if info:
+            c.append(F.texto(W - PAD - 20, base, info, 12, cor=TEXTO2, anchor='end'))
+        nomes.append(f'{nome} ({info})' if info else nome)
+    return c, '', f'Cursos e certificados: {"; ".join(nomes)}.'
+
+
 def formacao(P):
-    """RUN_06: duas colunas (instalado / instalando) + slot vazio pra certificados."""
+    """RUN_06: duas colunas (instalado / instalando) + caixa de certificados.
+    Com "certificados": [] a caixa mostra o data shard carregando (animado);
+    com itens, cada um vira uma linha. Item: "texto" ou {"nome", "emissor", "ano"}."""
     F, c = tema.Fontes(), []
-    cursos = [f for f in P['formacao'] if f['status'] != 'slot']
-    slots = [f for f in P['formacao'] if f['status'] == 'slot']
+    cursos = P['formacao']
+    certificados = P.get('certificados', [])
     cw = 375
     gap = W - 2 * PAD - 2 * cw
     fundo_col = 0
@@ -420,20 +480,20 @@ def formacao(P):
     c.append(f'<line x1="{W / 2 + .5:g}" y1="{PAD}" x2="{W / 2 + .5:g}" y2="{fundo_col + 6}" stroke="{VAZIO}"/>')
 
     y = fundo_col + 26
-    for f in slots:
-        c.append(f'<rect x="{PAD + .5}" y="{y + .5}" width="{W - 2 * PAD - 1}" height="49" fill="none" stroke="{CINZA}" '
-                 f'stroke-opacity=".6" stroke-dasharray="6 4"/>')
-        c.append(F.texto(PAD + 20, y + 30, 'EMPTY SLOT', 12, 700, TEXTO3, espaco=2))
-        c.append(F.texto(PAD + 20 + largura('EMPTY SLOT', 12, 700, 2) + 16, y + 30, val(f['texto']), 12, cor=TEXTO3))
-        y += 62
-    h = y - 12 + PAD
+    if certificados:
+        linhas, css, certs_txt = certificados_lista(F, certificados, y)
+    else:
+        linhas, css = data_shard(F, y)
+        certs_txt = 'Data shard de cursos e certificados: carregando.'
+    c += linhas
+    h = y + caixa_h(certificados) + PAD
 
     desc = ' '.join(f'{"Instalado" if f["status"] == "instalado" else "Instalando"} ({f["inicio"]} → {f["fim"]}): '
                     f'{val(f["curso"])}, {val(f["escola"])}'
                     f'{"" if f["status"] == "instalado" else " · semestre %d de %d" % (f["semestre"], f["semestres"])}.'
                     for f in cursos)
     return tema.card_secao('RUN_06', 'RIPPERDOC LOG', 6, ''.join(c), h, F,
-                           f'RUN_06 Ripperdoc log, formação. {desc} Empty slot {" ".join(val(s["texto"]) for s in slots)}.',
+                           f'RUN_06 Ripperdoc log, formação. {desc} {certs_txt}', css=css,
                            subtitulo='formação')
 
 

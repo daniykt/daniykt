@@ -43,7 +43,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/formacao.svg" width="100%" alt="RUN_06 Ripperdoc log, formação. Instalado (2023 → 2024): Técnico em Desenvolvimento de Sistemas, Etec Sylvio de Mattos Carvalho. Instalando (2025 → 2027): Desenvolvimento de Software Multiplataforma, FATEC Matão · semestre 4 de 6. Empty slot: [cursos e certificados entram aqui]." />
+  <img src="./assets/formacao.svg" width="100%" alt="RUN_06 Ripperdoc log, formação. Instalado (2023 → 2024): Técnico em Desenvolvimento de Sistemas, Etec Sylvio de Mattos Carvalho. Instalando (2025 → 2027): Desenvolvimento de Software Multiplataforma, FATEC Matão · semestre 4 de 6. Data shard de cursos e certificados: carregando." />
 </p>
 
 <!-- Street cred (gerado todo dia por .github/workflows/street-cred.yml) -->
