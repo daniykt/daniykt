@@ -1,10 +1,10 @@
 <!-- Header animado (gerado por scripts/gen_header.py) -->
 <p align="center">
-  <img src="./assets/header.svg" alt="daniykt — edgerunner header" width="100%" />
+  <img src="./assets/header.svg" alt="daniykt — $ ./jack_in --user=daniykt --city=nightmato --mode=edgerunner · front-end · web designer · 22 anos · matão/sp · fatec dsm · &quot;wake the f*ck up samurai, we have a city to burn&quot;" width="100%" />
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=FCEE09&center=true&vCenter=true&width=600&lines=Front-end+Developer+in+Training;Chasing+the+moon+over+Night+City;Stay+preem%2C+never+flatline" alt="Front-end Developer in Training" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=FCEE09&center=true&vCenter=true&width=600&lines=Front-end+Developer+in+Training;Chasing+the+moon+over+Night+City;Stay+preem%2C+never+flatline" alt="Front-end Developer in Training · Chasing the moon over Night City · Stay preem, never flatline" />
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=daniykt&color=FCEE09&style=for-the-badge&label=netrunners" alt="netrunners" />
+  <img src="https://komarev.com/ghpvc/?username=daniykt&color=FF003C&style=for-the-badge&label=netrunners" alt="netrunners: contador de visitas do perfil" />
 </p>
 
 ## <code>// RUN_01 ::</code> IDENTITY
@@ -25,13 +25,12 @@
 <tr>
 <td valign="middle" width="35%" align="center">
 
-<!-- TODO: trocar por ./assets/eyes.png depois de gerar o halftone (scripts/halftone.py) -->
 <img src="./assets/fundoAmarelo.jpg" alt="Eyes" width="100%"/>
 
 </td>
 <td valign="middle" width="65%">
 
-<img src="./assets/terminal-card.svg" alt="About me" width="100%" />
+<img src="./assets/terminal-card.svg" alt="Terminal daniykt@nightcity: Sou Full-Stack focado em front-end e design, apaixonado por arte. Chrome — Frontend: HTML, CSS, JavaScript, React, Tailwind; Backend: Node.js, PostgreSQL, Supabase; Mobile: Dart; Tools: Figma, GitHub, Git. Gigs: Mosaic (portfólio visual, alternativa ao Linktree), War Editor (redesign cinemático), Pesque &amp; Fale (rede social p/ pescadores), Portfolio (daniykt.dev, em breve). Comms: daniykt7@gmail.com, linkedin.com/in/-dsilva." width="100%" />
 
 </td>
 </tr>
@@ -39,118 +38,36 @@
 
 ## <code>// RUN_02 ::</code> CHARACTER SHEET
 
-<!-- TODO: escolher o personagem e gerar assets/char.png (scripts/halftone.py) -->
-<img align="right" width="240" src="./assets/D.jpg" alt="Personagem" />
-
-> <!-- TODO: citação escolhida por você -->
-
 Estudante de DSM na FATEC Matão. Entrei na programação pela porta do design e hoje vivo entre o Figma e o VS Code.
 
-```text
-◈ Class      → Netrunner / Front-end
-◈ Origin     → Matão, SP
-◈ Crew       → FATEC DSM · 4º semestre
-◈ Build      → INT / TECH / COOL
-◈ Cyberware  → Figma · React · Tailwind
-◈ Status     → Recusa virar cyberpsycho.
-```
+<img src="./assets/charsheet.svg" alt="Ficha de personagem de DANILO, Netrunner · Front-end (SUBJ_0831): origin Matão, SP; crew FATEC DSM · 4º semestre; cyberware Figma · React · Tailwind; status: recusa virar cyberpsycho. Atributos: INT 6/10, TECH 5/10, COOL 7/10. Citação: [sua citação]." width="100%" />
 
-<br clear="right" />
+## <code>// RUN_03 ::</code> JOURNAL — FOCO NO MOMENTO
 
-## <code>// RUN_03 ::</code> FOCO NO MOMENTO
-
-<!-- TODO: escolher o chip e gerar assets/chip.png (scripts/halftone.py) -->
-<img align="right" width="170" src="./assets/chip.png" alt="Chip" />
-
-- Fechar o MVP do **Mosaic**, com menos feature e mais acabamento.
-- Levar o Figma pro código sem perder detalhe.
-- Componentes React + TS legíveis.
-- Primeiro estágio em front-end.
-
-<br clear="right" />
+<img src="./assets/journal.svg" alt="Journal, foco no momento. Main job (tracked): Fechar o MVP do Mosaic — menos feature, mais acabamento. Side jobs: Primeiro estágio em front-end — deixar o portfólio pronto pra mostrar; Figma → código sem perder detalhe — o que eu desenho é o que vai pro ar. Gig: Componentes React + TS legíveis — um componente, uma responsabilidade." width="100%" />
 
 ## <code>// RUN_04 ::</code> GIGS EM DESTAQUE
 
-<a href="https://github.com/daniykt/Mosaic"><img src="https://img.shields.io/badge/MOSAIC-REPOSIT%C3%93RIO-FCEE09?style=for-the-badge&labelColor=0a0a0f&logo=github&logoColor=FCEE09" alt="Mosaic — repositório" /></a>
+<a href="https://github.com/daniykt/Mosaic"><img src="./assets/gig-mosaic.svg" alt="Gig 01, solo, main job: Mosaic. Portfólio visual em formato de mosaico, uma alternativa ao Linktree/Bento.me. Stack: React, Vite, TypeScript, Tailwind. Abrir repositório." width="100%" /></a>
 
-Portfólio visual em formato de mosaico, uma alternativa ao Linktree/Bento.me.
-
-`React` `Vite` `TypeScript` `Tailwind`
-
-`████████░░ 80% · MVP 31/10`
-
-<a href="https://github.com/daniykt/war-editor-portfolio"><img src="https://img.shields.io/badge/WAR%20EDITOR%20PORTFOLIO-REPOSIT%C3%93RIO-FCEE09?style=for-the-badge&labelColor=0a0a0f&logo=github&logoColor=FCEE09" alt="War Editor Portfolio — repositório" /></a>
-
-Redesign do portfólio de um editor de vídeo, um estudo de UI cinematográfica.
-
-`Figma` `React`
-
-`██████░░░░ 60%`
-
-<!-- TODO: confirmar a URL do Pesque & Fale (existem Pesque-Fale, pesquefale, PesqueFaleCSharp e pesqueefale_csharp) -->
-<a href="https://github.com/daniykt/Pesque-Fale"><img src="https://img.shields.io/badge/PESQUE%20%26%20FALE-REPOSIT%C3%93RIO-FCEE09?style=for-the-badge&labelColor=0a0a0f&logo=github&logoColor=FCEE09" alt="Pesque &amp; Fale — repositório" /></a>
-
-Rede social para pescadores, feita em time de 5 na FATEC.
-
-**Minha parte:** <!-- TODO: descrever sua parte no projeto -->
-
-`React` `Firebase`
-
-`████░░░░░░ 40%`
+<a href="https://github.com/daniykt/war-editor-portfolio"><img src="./assets/gig-war-editor.svg" alt="Gig 02, solo, estudo: War Editor. Redesign do portfólio de um editor de vídeo, um estudo de UI cinematográfica. Stack: Figma, React. Abrir repositório." width="49%" /></a>
+<a href="https://github.com/daniykt/Pesque-Fale"><img src="./assets/gig-pesque-fale.svg" alt="Gig 03, crew de 5, FATEC: Pesque &amp; Fale. Rede social para pescadores, feita em time de 5 na FATEC. Minha parte: [sua parte no projeto]. Stack: Flutter, Supabase. Abrir repositório." width="49%" /></a>
 
 ## <code>// RUN_05 ::</code> CHROME INSTALADO
 
 Uso React + TypeScript pra interface e Tailwind pra estilo. Abro o Figma antes do editor, e quando o projeto precisa de back-end recorro a Node ou Supabase.
 
-```bash
-daniykt@nightcity:~$ apt list --installed
-```
-
-<p>
-  <img src="https://img.shields.io/badge/HTML5-0a0a0f?style=for-the-badge&logo=html5&logoColor=FCEE09" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-0a0a0f?style=for-the-badge&logo=css&logoColor=FCEE09" alt="CSS3" />
-  <img src="https://img.shields.io/badge/JavaScript-0a0a0f?style=for-the-badge&logo=javascript&logoColor=FCEE09" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/TypeScript-0a0a0f?style=for-the-badge&logo=typescript&logoColor=FCEE09" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/React-0a0a0f?style=for-the-badge&logo=react&logoColor=FCEE09" alt="React" />
-  <img src="https://img.shields.io/badge/Vite-0a0a0f?style=for-the-badge&logo=vite&logoColor=FCEE09" alt="Vite" />
-  <img src="https://img.shields.io/badge/Tailwind-0a0a0f?style=for-the-badge&logo=tailwindcss&logoColor=FCEE09" alt="Tailwind" />
-  <img src="https://img.shields.io/badge/Figma-0a0a0f?style=for-the-badge&logo=figma&logoColor=FCEE09" alt="Figma" />
-  <img src="https://img.shields.io/badge/Node.js-0a0a0f?style=for-the-badge&logo=nodedotjs&logoColor=FCEE09" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Supabase-0a0a0f?style=for-the-badge&logo=supabase&logoColor=FCEE09" alt="Supabase" />
-  <img src="https://img.shields.io/badge/Git-0a0a0f?style=for-the-badge&logo=git&logoColor=FCEE09" alt="Git" />
-</p>
-
-```bash
-daniykt@nightcity:~$ ripperdoc --install-queue
-```
-
-<p>
-  <img src="https://img.shields.io/badge/Next.js-queued-FF003C?style=for-the-badge&logo=nextdotjs&logoColor=FFFFFF&labelColor=0a0a0f" alt="Next.js: queued" />
-  <img src="https://img.shields.io/badge/Vitest-queued-FF003C?style=for-the-badge&logo=vitest&logoColor=FFFFFF&labelColor=0a0a0f" alt="Vitest: queued" />
-  <img src="https://img.shields.io/badge/Acessibilidade-queued-FF003C?style=for-the-badge&labelColor=0a0a0f" alt="Acessibilidade: queued" />
-</p>
+<img src="./assets/chrome.svg" alt="Ripperdoc, inventário de cyberware. Frontal cortex: HTML, CSS, JavaScript, TypeScript, React, Vite, Tailwind. Nervous system: Node.js, Supabase, PostgreSQL. Ocular system: Figma, Git. Install queue (na fila): Next.js, Vitest, Acessibilidade." width="100%" />
 
 ## <code>// RUN_06 ::</code> RIPPERDOC LOG — FORMAÇÃO
 
-| ◈ | Upgrade | Status |
-| :-: | --- | --- |
-| ◈ | DSM — FATEC Matão | `INSTALANDO · 4/6` |
-| ◈ | Técnico em Desenvolvimento de Sistemas — Etec Sylvio de Mattos Carvalho | `INSTALADO` |
-| ◈ | Cursos e certificados <!-- TODO: listar cursos e certificados --> | — |
+<img src="./assets/formacao.svg" alt="Formação. Instalado (2023 → 2024): Técnico em Desenvolvimento de Sistemas, Etec Sylvio de Mattos Carvalho. Instalando (2025 → 2027): Desenvolvimento de Software Multiplataforma, FATEC Matão, semestre 4 de 6. Empty slot: [cursos e certificados entram aqui]." width="100%" />
 
 ## <code>// RUN_07 ::</code> STREET CRED
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=daniykt&background=0a0a0f&ring=FF003C&fire=FCEE09&currStreakLabel=FCEE09&sideLabels=FCEE09&hide_border=true" alt="GitHub streak" />
-</p>
-
-<p align="center">
-  <img src="https://readme-stats-fork-mauve.vercel.app/api/?username=daniykt&bg_color=0a0a0f&title_color=FCEE09&text_color=FFFFFF&icon_color=FF003C&hide_border=true&show_icons=true&count_private=true" alt="GitHub stats" />
-  <img src="https://readme-stats-fork-mauve.vercel.app/api/top-langs/?username=daniykt&layout=compact&bg_color=0a0a0f&title_color=FCEE09&text_color=FFFFFF&icon_color=FF003C&hide_border=true" alt="Top languages" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=daniykt&bg_color=0a0a0f&color=FCEE09&line=FCEE09&point=FF003C&area=true&area_color=2a2600&hide_border=true" alt="Activity graph" width="100%" />
+  <img src="https://streak-stats.demolab.com?user=daniykt&background=0a0a0f&ring=FF003C&fire=FCEE09&currStreakLabel=FCEE09&sideLabels=FCEE09&hide_border=true" alt="GitHub streak de daniykt: total de contribuições, sequência atual e maior sequência" width="49%" />
+  <img src="https://readme-stats-fork-mauve.vercel.app/api/?username=daniykt&bg_color=0a0a0f&title_color=FCEE09&text_color=FFFFFF&icon_color=FF003C&hide_border=true&show_icons=true&count_private=true" alt="Estatísticas do GitHub de daniykt: estrelas, commits, pull requests, issues e contribuições" width="49%" />
 </p>
 
 <!-- Snake (gerado por .github/workflows/snake.yml na branch output) -->
@@ -176,5 +93,5 @@ daniykt@nightcity:~$ ripperdoc --install-queue
 
 <!-- Footer animado (gerado por scripts/gen_footer.py) -->
 <p align="center">
-  <img src="./assets/footer.svg" alt="never fade away — see you on the net, choom" width="100%" />
+  <img src="./assets/footer.svg" alt="NEVER FADE AWAY — the ones who do go legend · see you on the net, choom" width="100%" />
 </p>
