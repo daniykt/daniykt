@@ -1,0 +1,113 @@
+{
+  "_leia": "Dados lidos por scripts/gen_cards.py. Valor que começa com 'TODO: ' aparece no SVG entre colchetes. Na bio, **x** = amarelo e __x__ = magenta.",
+
+  "nome": "DANILO",
+  "classe": "NETRUNNER · FRONT-END",
+  "bio": "Sou **Full-Stack** focado em **front-end** e **design**, apaixonado por __arte__.",
+
+  "atributos": {
+    "_todo": "TODO: valores provisórios, eu ajusto",
+    "INT": 6,
+    "TECH": 5,
+    "COOL": 7
+  },
+  "citacao": "TODO: sua citação",
+
+  "personagem": {
+    "imagem": "assets/D.jpg",
+    "codigo": "SUBJ_0831"
+  },
+  "origin": "Matão, SP",
+  "crew": "FATEC DSM · 4º semestre",
+  "cyberware": "Figma · React · Tailwind",
+  "status": "Recusa virar cyberpsycho.",
+
+  "journal": [
+    { "tipo": "MAIN JOB", "tracked": true, "titulo": "Fechar o MVP do Mosaic", "objetivo": "Menos feature, mais acabamento." },
+    { "tipo": "SIDE JOB", "titulo": "Primeiro estágio em front-end", "objetivo": "Deixar o portfólio pronto pra mostrar." },
+    { "tipo": "SIDE JOB", "titulo": "Figma → código sem perder detalhe", "objetivo": "O que eu desenho é o que vai pro ar." },
+    { "tipo": "GIG", "titulo": "Componentes React + TS legíveis", "objetivo": "Um componente, uma responsabilidade." }
+  ],
+
+  "gigs": [
+    {
+      "id": "mosaic",
+      "nome": "Mosaic",
+      "equipe": "SOLO",
+      "tag": "MAIN JOB",
+      "repo": "https://github.com/daniykt/Mosaic",
+      "descricao": "Portfólio visual em formato de mosaico, uma alternativa ao Linktree/Bento.me.",
+      "resumo": "portfólio visual, alternativa ao Linktree",
+      "stack": ["React", "Vite", "TypeScript", "Tailwind"],
+      "print": "assets/src/prints/mosaic.png"
+    },
+    {
+      "id": "war-editor",
+      "nome": "War Editor",
+      "equipe": "SOLO",
+      "tag": "ESTUDO",
+      "repo": "https://github.com/daniykt/war-editor-portfolio",
+      "descricao": "Redesign do portfólio de um editor de vídeo, um estudo de UI cinematográfica.",
+      "resumo": "redesign cinemático",
+      "stack": ["Figma", "React"],
+      "print": "assets/src/prints/war-editor.png"
+    },
+    {
+      "id": "pesque-fale",
+      "nome": "Pesque & Fale",
+      "equipe": "CREW DE 5",
+      "tag": "FATEC",
+      "repo": "https://github.com/daniykt/Pesque-Fale",
+      "descricao": "Rede social para pescadores, feita em time de 5 na FATEC.",
+      "resumo": "rede social p/ pescadores",
+      "minha_parte": "TODO: sua parte no projeto",
+      "stack": ["Flutter", "Supabase"],
+      "print": "assets/src/prints/pesque-fale.png"
+    }
+  ],
+
+  "chrome": [
+    { "grupo": "FRONTAL CORTEX", "itens": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vite", "Tailwind"] },
+    { "grupo": "NERVOUS SYSTEM", "itens": ["Node.js", "Supabase", "PostgreSQL"] },
+    { "grupo": "OCULAR SYSTEM", "itens": ["Figma", "Git"] },
+    { "grupo": "INSTALL QUEUE", "fila": true, "itens": ["Next.js", "Vitest", "Acessibilidade"] }
+  ],
+
+  "formacao": [
+    {
+      "status": "instalado",
+      "escola": "Etec Sylvio de Mattos Carvalho",
+      "curso": "Técnico em Desenvolvimento de Sistemas",
+      "inicio": 2023,
+      "fim": 2024
+    },
+    {
+      "status": "instalando",
+      "escola": "FATEC Matão",
+      "curso": "Desenvolvimento de Software Multiplataforma",
+      "inicio": 2025,
+      "fim": 2027,
+      "semestre": 4,
+      "semestres": 6
+    },
+    {
+      "status": "slot",
+      "texto": "TODO: cursos e certificados entram aqui"
+    }
+  ],
+
+  "terminal": {
+    "stack": [
+      ["Frontend", "HTML · CSS · JavaScript · React · Tailwind"],
+      ["Backend", "Node.js · PostgreSQL · Supabase"],
+      ["Mobile", "Dart"],
+      ["Tools", "Figma · GitHub · Git"]
+    ],
+    "extra": { "nome": "Portfolio", "resumo": "daniykt.dev · [soon]" },
+    "comms": [
+      ["Email", "daniykt7@gmail.com"],
+      ["LinkedIn", "linkedin.com/in/-dsilva"]
+    ],
+    "rodape": "// \"the ones who do go legend. never die.\"  —  maine"
+  }
+}
