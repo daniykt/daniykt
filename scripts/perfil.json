@@ -15,7 +15,8 @@
   "citacao": "Transformo design em experiência, e experiência em código.",
 
   "personagem": {
-    "imagem": "assets/D.jpg",
+    "imagem": "assets/char.png",
+    "filtro": "troca",
     "codigo": "SUBJ_0831"
   },
   "origin": "Matão, SP",

@@ -21,6 +21,9 @@ import json
 import os
 import re
 
+import numpy as np
+from PIL import Image, ImageOps
+
 import tema
 from tema import (AMARELO, MAGENTA, FUNDO, TEXTO, TEXTO2, TEXTO3, CINZA, VERDE,
                   BORDA_SEC, VAZIO, CHIP, PAD, esc, largura)
@@ -62,11 +65,51 @@ def listras(F, x, y, w, h, rotulo, pid):
             + F.texto(x + w / 2, y + h / 2 + 4, rotulo, 12, cor=TEXTO3, anchor='middle'))
 
 
+# ───────── filtros do retrato (personagem.filtro no perfil.json) ─────────
+
+def _rgb(cor):
+    return np.array([int(cor[i:i + 2], 16) for i in (1, 3, 5)], np.float32) / 255
+
+
+def scanlines(a):
+    """Escurece 1 a cada 3 linhas de pixel em 28%."""
+    a[::3] *= .72
+    return a
+
+
+def filtro_troca(img):
+    """Troca de paleta em HSV: azul/roxo (190°–270°) → magenta, laranja/amarelo (15°–65°) → amarelo,
+    escuros (v < 0.2) puxam 70% pro fundo. Só pixels com saturação > 0.35 trocam de cor."""
+    a = np.asarray(img, np.float32) / 255
+    h, s, v = (np.asarray(img.convert('HSV'), np.float32) / 255).transpose(2, 0, 1)
+    h = h * 360
+    magenta = (h >= 190) & (h <= 270) & (s > .35)
+    amarelo = (h >= 15) & (h <= 65) & (s > .35)
+    escuro = (v < .2) & ~magenta & ~amarelo
+    a[magenta] = _rgb(MAGENTA) * np.minimum(v[magenta] / .75, 1)[:, None]
+    a[amarelo] = _rgb(AMARELO) * np.minimum(v[amarelo] / .95, 1)[:, None]
+    a[escuro] = a[escuro] * .3 + _rgb(FUNDO) * .7
+    return Image.fromarray((scanlines(a) * 255).round().clip(0, 255).astype(np.uint8))
+
+
+def filtro_tritone(img):
+    """Cinza com autocontraste (cutoff 1%) no degradê fundo → magenta (45%) → amarelo."""
+    t = np.asarray(ImageOps.autocontrast(img.convert('L'), cutoff=1), np.float32) / 255
+    pontos, cores = [0, .45, 1], [_rgb(FUNDO), _rgb(MAGENTA), _rgb(AMARELO)]
+    a = np.stack([np.interp(t, pontos, [c[k] for c in cores]) for k in range(3)], axis=-1)
+    return Image.fromarray((scanlines(a) * 255).round().clip(0, 255).astype(np.uint8))
+
+
+FILTROS = {'troca': filtro_troca, 'tritone': filtro_tritone, None: None}
+
+
 _avisados = set()
 
 
-def imagem(F, caminho, x, y, w, h, rotulo, pid):
-    uri = tema.img_base64(os.path.join(tema.RAIZ, caminho), w, h)
+def imagem(F, caminho, x, y, w, h, rotulo, pid, filtro=None):
+    if filtro not in FILTROS:
+        raise ValueError(f'filtro desconhecido: {filtro!r} (use {", ".join(repr(k) for k in FILTROS)})')
+    uri = tema.img_base64(os.path.join(tema.RAIZ, caminho), w, h, transforma=FILTROS[filtro])
     if not uri:
         if caminho not in _avisados:
             _avisados.add(caminho)
@@ -192,7 +235,7 @@ def charsheet(P):
     F, c = tema.Fontes(), []
     px, py, ps = PAD, PAD, 250
     pers = P['personagem']
-    c.append(imagem(F, pers['imagem'], px, py, ps, ps, '[retrato]', 'ph-retrato'))
+    c.append(imagem(F, pers['imagem'], px, py, ps, ps, '[retrato]', 'ph-retrato', pers.get('filtro')))
     c.append(f'<rect x="{px + .5}" y="{py + .5}" width="{ps - 1}" height="{ps - 1}" fill="none" stroke="{MAGENTA}" stroke-width="1.5"/>')
     c.append(F.texto(px, py + ps + 22, val(pers['codigo']), 12, 700, MAGENTA, espaco=1))
     c.append(F.texto(px + ps, py + ps + 22, 'ID VERIFIED ✓', 11, cor=TEXTO3, anchor='end', espaco=1))

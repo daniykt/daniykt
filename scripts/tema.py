@@ -201,9 +201,10 @@ def card_secao(run, nome, indice, corpo, altura_corpo, F, titulo, *,
     return svg(w, H, ''.join(partes), F, titulo, css)
 
 
-def img_base64(caminho, largura, altura=None, escala=2):
+def img_base64(caminho, largura, altura=None, escala=2, transforma=None):
     """Data URI JPEG q80. Com altura, corta pra preencher (object-fit: cover).
-    escala=2 guarda o dobro de pixels pra ficar nítido em tela retina."""
+    escala=2 guarda o dobro de pixels pra ficar nítido em tela retina.
+    transforma: função opcional Image → Image (filtro), aplicada depois de redimensionar."""
     if not os.path.isfile(caminho):
         return None
     img = ImageOps.exif_transpose(Image.open(caminho)).convert('RGB')
@@ -212,6 +213,8 @@ def img_base64(caminho, largura, altura=None, escala=2):
     else:
         img = img.resize((largura * escala, round(img.height * largura * escala / img.width)),
                          Image.Resampling.LANCZOS)
+    if transforma:
+        img = transforma(img)
     buf = io.BytesIO()
     img.save(buf, 'JPEG', quality=80, optimize=True, progressive=True)
     return 'data:image/jpeg;base64,' + base64.b64encode(buf.getvalue()).decode('ascii')
