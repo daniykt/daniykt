@@ -60,8 +60,6 @@
 </p>
 
 <p align="center">
-  <code>// COMMS ::</code>
-  <br />
   <a href="https://www.linkedin.com/in/-dsilva"><img src="./assets/icons/linkedin.svg" width="22" alt="LinkedIn" /></a>
   &nbsp;&nbsp;
   <a href="https://github.com/daniykt"><img src="./assets/icons/github.svg" width="22" alt="GitHub" /></a>
