@@ -10,8 +10,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/STATUS-JACKED__IN-FCEE09?style=for-the-badge&labelColor=0a0a0f" alt="STATUS: JACKED_IN" />
   <img src="https://img.shields.io/badge/LOC-MAT%C3%83O__SP-FF003C?style=for-the-badge&labelColor=0a0a0f" alt="LOC: MATÃO_SP" />
-  <img src="https://img.shields.io/badge/STACK-FRONT--END-FCEE09?style=for-the-badge&labelColor=0a0a0f" alt="STACK: FRONT-END" />
-  <img src="https://img.shields.io/badge/MODE-LEARNING-FF003C?style=for-the-badge&labelColor=0a0a0f" alt="MODE: LEARNING" />
   <img src="https://img.shields.io/badge/OPEN%20TO-EST%C3%81GIO-FCEE09?style=for-the-badge&labelColor=0a0a0f" alt="OPEN TO: ESTÁGIO" />
 </p>
 
