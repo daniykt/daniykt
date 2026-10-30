@@ -1,6 +1,6 @@
 <!-- Header animado (gerado por scripts/gen_header.py) -->
 <p align="center">
-  <img src="./assets/header.svg" alt="daniykt — $ ./jack_in --user=daniykt --city=nightmato --mode=edgerunner · front-end · web designer · 22 anos · matão/sp · fatec dsm · &quot;wake the f*ck up samurai, we have a city to burn&quot;" width="100%" />
+  <img src="./assets/header.svg" alt="daniykt — $ ./jack_in --user=daniykt --city=nightmato --mode=edgerunner · front-end · web designer · 22 anos · matão/sp · fatec dsm · &quot;i really want to stay at your house&quot;" width="100%" />
 </p>
 
 <p align="center">

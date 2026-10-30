@@ -29,7 +29,7 @@ W, H = 900, 300
 NAME = 'daniykt'
 CMD = '$ ./jack_in --user=daniykt --city=nightmato --mode=edgerunner'
 SUB = 'front-end · web designer · 22 anos · matão/sp · fatec dsm'
-QUOTE = '> "wake the f*ck up samurai, we have a city to burn"'
+QUOTE = '> "i really want to stay at your house"'   # sem ♫: a JetBrains Mono não tem esse glifo
 
 # paleta Edgerunners (CDPR)
 YELLOW, MAGENTA, CYAN = '#FCEE09', '#FF003C', '#00F0FF'
