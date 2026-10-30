@@ -19,55 +19,38 @@
   <img src="https://komarev.com/ghpvc/?username=daniykt&color=FF003C&style=for-the-badge&label=netrunners" alt="netrunners: contador de visitas do perfil" />
 </p>
 
-## <code>// RUN_01 ::</code> IDENTITY
-
-<table>
-<tr>
-<td valign="middle" width="35%" align="center">
-
-<img src="./assets/fundoAmarelo.jpg" alt="Eyes" width="100%"/>
-
-</td>
-<td valign="middle" width="65%">
-
-<img src="./assets/terminal-card.svg" alt="Terminal daniykt@nightcity: Sou Full-Stack focado em front-end e design, apaixonado por arte. Chrome — Frontend: HTML, CSS, JavaScript, React, Tailwind; Backend: Node.js, PostgreSQL, Supabase; Mobile: Dart; Tools: Figma, GitHub, Git. Gigs: Mosaic (portfólio visual, alternativa ao Linktree), War Editor (redesign cinemático), Pesque &amp; Fale (rede social p/ pescadores), Portfolio (daniykt.dev, em breve). Comms: daniykt7@gmail.com, linkedin.com/in/-dsilva." width="100%" />
-
-</td>
-</tr>
-</table>
-
-## <code>// RUN_02 ::</code> CHARACTER SHEET
-
-Estudante de DSM na FATEC Matão. Entrei na programação pela porta do design e hoje vivo entre o Figma e o VS Code.
-
-<img src="./assets/charsheet.svg" alt="Ficha de personagem de DANILO, Netrunner · Front-end (SUBJ_0831): origin Matão, SP; crew FATEC DSM · 4º semestre; cyberware Figma · React · Tailwind; status: recusa virar cyberpsycho. Atributos: INT 6/10, TECH 5/10, COOL 7/10. Citação: [sua citação]." width="100%" />
-
-## <code>// RUN_03 ::</code> JOURNAL — FOCO NO MOMENTO
-
-<img src="./assets/journal.svg" alt="Journal, foco no momento. Main job (tracked): Fechar o MVP do Mosaic — menos feature, mais acabamento. Side jobs: Primeiro estágio em front-end — deixar o portfólio pronto pra mostrar; Figma → código sem perder detalhe — o que eu desenho é o que vai pro ar. Gig: Componentes React + TS legíveis — um componente, uma responsabilidade." width="100%" />
-
-## <code>// RUN_04 ::</code> GIGS EM DESTAQUE
-
-<a href="https://github.com/daniykt/Mosaic"><img src="./assets/gig-mosaic.svg" alt="Gig 01, solo, main job: Mosaic. Portfólio visual em formato de mosaico, uma alternativa ao Linktree/Bento.me. Stack: React, Vite, TypeScript, Tailwind. Abrir repositório." width="100%" /></a>
-
-<a href="https://github.com/daniykt/war-editor-portfolio"><img src="./assets/gig-war-editor.svg" alt="Gig 02, solo, estudo: War Editor. Redesign do portfólio de um editor de vídeo, um estudo de UI cinematográfica. Stack: Figma, React. Abrir repositório." width="49%" /></a>
-<a href="https://github.com/daniykt/Pesque-Fale"><img src="./assets/gig-pesque-fale.svg" alt="Gig 03, crew de 5, FATEC: Pesque &amp; Fale. Rede social para pescadores, feita em time de 5 na FATEC. Minha parte: [sua parte no projeto]. Stack: Flutter, Supabase. Abrir repositório." width="49%" /></a>
-
-## <code>// RUN_05 ::</code> CHROME INSTALADO
-
-Uso React + TypeScript pra interface e Tailwind pra estilo. Abro o Figma antes do editor, e quando o projeto precisa de back-end recorro a Node ou Supabase.
-
-<img src="./assets/chrome.svg" alt="Ripperdoc, inventário de cyberware. Frontal cortex: HTML, CSS, JavaScript, TypeScript, React, Vite, Tailwind. Nervous system: Node.js, Supabase, PostgreSQL. Ocular system: Figma, Git. Install queue (na fila): Next.js, Vitest, Acessibilidade." width="100%" />
-
-## <code>// RUN_06 ::</code> RIPPERDOC LOG — FORMAÇÃO
-
-<img src="./assets/formacao.svg" alt="Formação. Instalado (2023 → 2024): Técnico em Desenvolvimento de Sistemas, Etec Sylvio de Mattos Carvalho. Instalando (2025 → 2027): Desenvolvimento de Software Multiplataforma, FATEC Matão, semestre 4 de 6. Empty slot: [cursos e certificados entram aqui]." width="100%" />
-
-## <code>// RUN_07 ::</code> STREET CRED
+<p align="center">
+  <img src="./assets/identity.svg" width="100%" alt="RUN_01 Identity. daniykt@nightcity: Sou Full-Stack focado em front-end e design, apaixonado por arte. Chrome — Frontend: HTML · CSS · JavaScript · React · Tailwind; Backend: Node.js · PostgreSQL · Supabase. Comms: daniykt7@gmail.com, linkedin.com/in/-dsilva." />
+</p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=daniykt&background=0a0a0f&ring=FF003C&fire=FCEE09&currStreakLabel=FCEE09&sideLabels=FCEE09&hide_border=true" alt="GitHub streak de daniykt: total de contribuições, sequência atual e maior sequência" width="49%" />
-  <img src="https://readme-stats-fork-mauve.vercel.app/api/?username=daniykt&bg_color=0a0a0f&title_color=FCEE09&text_color=FFFFFF&icon_color=FF003C&hide_border=true&show_icons=true&count_private=true" alt="Estatísticas do GitHub de daniykt: estrelas, commits, pull requests, issues e contribuições" width="49%" />
+  <img src="./assets/charsheet.svg" width="100%" alt="RUN_02 Character sheet. DANILO, Netrunner · Front-end, SUBJ_0831, ID verified. Origin Matão, SP; crew FATEC DSM · 4º semestre; cyberware Figma · React · Tailwind; status: Recusa virar cyberpsycho. Attributes: INT 6/10, TECH 5/10, COOL 7/10. Citação: [sua citação]." />
+</p>
+
+<p align="center">
+  <img src="./assets/journal.svg" width="100%" alt="RUN_03 Journal, foco no momento. Main job (tracked): Fechar o MVP do Mosaic — Menos feature, mais acabamento. Side job: Primeiro estágio em front-end — Deixar o portfólio pronto pra mostrar. Side job: Figma → código sem perder detalhe — O que eu desenho é o que vai pro ar. Gig: Componentes React + TS legíveis — Um componente, uma responsabilidade." />
+</p>
+
+<p align="center">
+  <img src="./assets/gigs-titulo.svg" width="100%" alt="RUN_04 Gigs em destaque." />
+  <br />
+  <a href="https://github.com/daniykt/Mosaic"><img src="./assets/gig-mosaic.svg" width="100%" alt="Gig 01 · solo · main job: Mosaic. Portfólio visual em formato de mosaico, uma alternativa ao Linktree/Bento.me. Stack: React, Vite, TypeScript, Tailwind. Abrir repo." /></a>
+  <br />
+  <a href="https://github.com/daniykt/war-editor-portfolio"><img src="./assets/gig-war-editor.svg" width="49%" alt="Gig 02 · solo · estudo: War Editor. Redesign do portfólio de um editor de vídeo, um estudo de UI cinematográfica. Stack: Figma, React. Abrir repo." /></a>
+  <a href="https://github.com/daniykt/Pesque-Fale"><img src="./assets/gig-pesque-fale.svg" width="49%" alt="Gig 03 · crew de 5 · FATEC: Pesque &amp; Fale. Rede social para pescadores, feita em time de 5 na FATEC. Minha parte: [sua parte no projeto]. Stack: Flutter, Supabase. Abrir repo." /></a>
+</p>
+
+<p align="center">
+  <img src="./assets/chrome.svg" width="100%" alt="RUN_05 Chrome instalado. Uso React + TypeScript pra interface e Tailwind pra estilo. Abro o Figma antes do editor, e quando o projeto precisa de back-end recorro a Node ou Supabase. Ripperdoc // cyberware inventory — Frontal cortex: HTML, CSS, JavaScript, TypeScript, React, Vite, Tailwind. Nervous system: Node.js, Supabase, PostgreSQL. Ocular system: Figma, Git. Install queue (na fila): Next.js, Vitest, Acessibilidade." />
+</p>
+
+<p align="center">
+  <img src="./assets/formacao.svg" width="100%" alt="RUN_06 Ripperdoc log, formação. Instalado (2023 → 2024): Técnico em Desenvolvimento de Sistemas, Etec Sylvio de Mattos Carvalho. Instalando (2025 → 2027): Desenvolvimento de Software Multiplataforma, FATEC Matão · semestre 4 de 6. Empty slot: [cursos e certificados entram aqui]." />
+</p>
+
+<!-- Street cred (gerado todo dia por .github/workflows/street-cred.yml) -->
+<p align="center">
+  <img src="./assets/street-cred.svg" width="100%" alt="RUN_07 Street cred, atualizado todo dia: total de contribuições desde mai 2023, streak atual em dias, maior streak em dias e número de repositórios públicos." />
 </p>
 
 <!-- Snake (gerado por .github/workflows/snake.yml na branch output) -->
