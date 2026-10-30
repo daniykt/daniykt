@@ -37,7 +37,6 @@
       "tag": "MAIN JOB",
       "repo": "https://github.com/daniykt/Mosaic",
       "descricao": "Portfólio visual em formato de mosaico, uma alternativa ao Linktree/Bento.me.",
-      "resumo": "portfólio visual, alternativa ao Linktree",
       "stack": ["React", "Vite", "TypeScript", "Tailwind"]
     },
     {
@@ -47,7 +46,6 @@
       "tag": "ESTUDO",
       "repo": "https://github.com/daniykt/war-editor-portfolio",
       "descricao": "Redesign do portfólio de um editor de vídeo, um estudo de UI cinematográfica.",
-      "resumo": "redesign cinemático",
       "stack": ["Figma", "React"]
     },
     {
@@ -57,7 +55,6 @@
       "tag": "FATEC",
       "repo": "https://github.com/daniykt/Pesque-Fale",
       "descricao": "Rede social para pescadores, feita em time de 5 na FATEC.",
-      "resumo": "rede social p/ pescadores",
       "minha_parte": "TODO: sua parte no projeto",
       "stack": ["Flutter", "Supabase"]
     }
@@ -98,15 +95,11 @@
     "imagem": "assets/fundoAmarelo.jpg",
     "stack": [
       ["Frontend", "HTML · CSS · JavaScript · React · Tailwind"],
-      ["Backend", "Node.js · PostgreSQL · Supabase"],
-      ["Mobile", "Dart"],
-      ["Tools", "Figma · GitHub · Git"]
+      ["Backend", "Node.js · PostgreSQL · Supabase"]
     ],
-    "extra": { "nome": "Portfolio", "resumo": "daniykt.dev · [soon]" },
     "comms": [
       ["Email", "daniykt7@gmail.com"],
       ["LinkedIn", "linkedin.com/in/-dsilva"]
-    ],
-    "rodape": "// \"the ones who do go legend. never die.\"  —  maine"
+    ]
   }
 }

@@ -34,7 +34,6 @@ NUMERO = '#1e1e28'                       # numeração decorativa dos gigs (marc
 CLARO = tema.TEXTO2                      # secundário: objetivos, citação
 APAGADO = tema.TEXTO3                    # terciário: comentários do terminal
 SLOT = '#101018'                         # fundo dos slots do chrome
-IDENTITY_STACK = ('Frontend', 'Backend')  # linhas de terminal.stack que aparecem na identity
 
 ICONE = {
     'HTML': 'html5', 'CSS': 'css', 'JavaScript': 'javascript', 'TypeScript': 'typescript',
@@ -163,7 +162,7 @@ def identity(P):
     linhas, y = rico_linhas(F, x0, y + 44, P['bio'], 13, fim - x0)
     c += linhas
 
-    stack = [par for par in T['stack'] if par[0] in IDENTITY_STACK]
+    stack = T['stack']
     c.append(secao(F, x0, y + 36, 'CHROME', fim))
     linhas, y = linhas_rotuladas(F, x0, y + 60, stack)
     c += linhas
