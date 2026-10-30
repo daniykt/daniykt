@@ -97,6 +97,7 @@
   ],
 
   "terminal": {
+    "imagem": "assets/fundoAmarelo.jpg",
     "stack": [
       ["Frontend", "HTML · CSS · JavaScript · React · Tailwind"],
       ["Backend", "Node.js · PostgreSQL · Supabase"],

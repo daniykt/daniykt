@@ -2,7 +2,7 @@
 """Gera as seções do README em SVG — tema Cyberpunk: Edgerunners.
 
 Lê scripts/perfil.json e grava em assets/:
-  terminal-card.svg   bio, stack, gigs e comms em formato de terminal
+  identity.svg        RUN_01: imagem + terminal (bio, chrome, comms)
   charsheet.svg       retrato + ficha + atributos
   journal.svg         foco do momento como quest log
   gig-<id>.svg        um card por projeto (o primeiro grande, os outros pela metade)
@@ -15,12 +15,14 @@ Print que não existe vira um placeholder listrado com '[print do projeto]'.
 
 uso:  python3 scripts/gen_cards.py
 """
+import itertools
 import json
 import os
 import re
 
 import tema
-from tema import AMARELO, MAGENTA, FUNDO, TEXTO, CINZA, VERDE, BORDA_SEC, VAZIO, CHIP, esc, largura
+from tema import (AMARELO, MAGENTA, FUNDO, TEXTO, TEXTO2, TEXTO3, CINZA, VERDE,
+                  BORDA_SEC, VAZIO, CHIP, PAD, esc, largura)
 
 PERFIL = os.path.join(tema.HERE, 'perfil.json')
 ICONES = os.path.join(tema.HERE, 'icones')
@@ -30,6 +32,7 @@ W_GIG, H_GIG, H_PRINT = 412, 330, 150   # gigs secundários
 CLARO = tema.TEXTO2                      # secundário: objetivos, citação
 APAGADO = tema.TEXTO3                    # terciário: comentários do terminal
 SLOT = '#101018'                         # fundo dos slots do chrome
+IDENTITY_STACK = ('Frontend', 'Backend')  # linhas de terminal.stack que aparecem na identity
 
 ICONE = {
     'HTML': 'html5', 'CSS': 'css', 'JavaScript': 'javascript', 'TypeScript': 'typescript',
@@ -55,7 +58,7 @@ def listras(F, x, y, w, h, rotulo, pid):
             f'patternTransform="rotate(45)"><rect width="12" height="12" fill="#0f0f16"/>'
             f'<rect width="5" height="12" fill="#17171f"/></pattern></defs>'
             f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="url(#{pid})"/>'
-            + F.texto(x + w / 2, y + h / 2 + 4, rotulo, 12, cor=CINZA, anchor='middle'))
+            + F.texto(x + w / 2, y + h / 2 + 4, rotulo, 12, cor=TEXTO3, anchor='middle'))
 
 
 _avisados = set()
@@ -88,29 +91,41 @@ def icone(nome, cor):
     return ''.join(f'<path d="{d}" fill="{cor}"/>' for d in re.findall(r'<path d="([^"]+)"', s))
 
 
-# ───────── terminal-card ─────────
+# ───────── identity ─────────
 
-def rico(F, x, y, s, tam):
-    """Texto com **amarelo** e __magenta__ em negrito."""
-    spans = []
+def rico_linhas(F, x, y, s, tam, max_w, passo=20):
+    """Texto com **amarelo** e __magenta__ em negrito, quebrado em linhas de até max_w.
+    O destaque sobrevive à quebra mesmo quando atravessa várias palavras."""
+    chars = []
     for p in re.split(r'(\*\*.+?\*\*|__.+?__)', s):
-        if p.startswith('**') or p.startswith('__'):
-            cor = AMARELO if p[0] == '*' else MAGENTA
-            spans.append(f'<tspan fill="{cor}" font-weight="700">{esc(F.usar(p[2:-2], 700))}</tspan>')
-        elif p:
-            spans.append(esc(F.usar(p)))
-    return f'<text x="{x}" y="{y}" font-size="{tam}" fill="{TEXTO}">{"".join(spans)}</text>'
-
-
-def quebrar_rico(s, tam, max_w):
-    limpo = lambda t: re.sub(r'\*\*|__', '', t)
-    linhas, atual = [], []
-    for p in s.split():
-        if atual and largura(limpo(' '.join(atual + [p])), tam) > max_w:
-            linhas.append(' '.join(atual))
+        cor = AMARELO if p.startswith('**') else MAGENTA if p.startswith('__') else None
+        chars += [(ch, cor) for ch in (p[2:-2] if cor else p)]
+    palavras, atual = [], []
+    for ch, cor in chars + [(' ', None)]:
+        if ch == ' ':
+            if atual:
+                palavras.append(atual)
             atual = []
-        atual.append(p)
-    return linhas + [' '.join(atual)]
+        else:
+            atual.append((ch, cor))
+    linhas, linha = [], []
+    for p in palavras:
+        teste = linha + ([(' ', None)] if linha else []) + p
+        if linha and largura(''.join(ch for ch, _ in teste), tam) > max_w:
+            linhas.append(linha)
+            linha = p
+        else:
+            linha = teste
+    linhas.append(linha)
+    out = []
+    for i, linha in enumerate(linhas):
+        spans = []
+        for cor, grupo in itertools.groupby(linha, key=lambda t: t[1]):
+            txt = ''.join(ch for ch, _ in grupo)
+            spans.append(f'<tspan fill="{cor}" font-weight="700">{esc(F.usar(txt, 700))}</tspan>'
+                         if cor else esc(F.usar(txt)))
+        out.append(f'<text x="{x}" y="{y + i * passo}" font-size="{tam}" fill="{TEXTO}">{"".join(spans)}</text>')
+    return out, y + (len(linhas) - 1) * passo
 
 
 def secao(F, x, y, nome, fim, direita=''):
@@ -120,65 +135,53 @@ def secao(F, x, y, nome, fim, direita=''):
     return F.texto(x, y, base + '─' * n + cauda, 13, 700, MAGENTA)
 
 
-def linhas_rotuladas(F, x, y, pares, passo=20):
+def linhas_rotuladas(F, x, y, pares, passo=22):
     col = max(largura(k + ':', 13, 700) for k, _ in pares) + 14
     out = []
     for k, v in pares:
         out.append(F.texto(x, y, k + ':', 13, 700, AMARELO) + F.texto(x + col, y, val(v), 13))
         y += passo
-    return out, y
+    return out, y - passo
 
 
-def terminal_card(P):
+def identity(P):
+    """RUN_01: imagem 270x270 à esquerda + terminal (prompt, bio, chrome, comms) à direita."""
     F, T, c = tema.Fontes(), P['terminal'], []
-    x0, fim = 36, W - 36
-    prompt = 'daniykt@nightcity:~$'
+    lado = 270
+    c.append(imagem(F, T['imagem'], PAD, PAD, lado, lado, '[imagem]', 'ph-identity'))
+    c.append(f'<rect x="{PAD + .5}" y="{PAD + .5}" width="{lado - 1}" height="{lado - 1}" fill="none" stroke="{BORDA_SEC}"/>')
 
+    x0, fim = PAD + lado + 28, W - PAD
+    prompt = 'daniykt@nightcity:~$'
     y = 46
     c.append(F.texto(x0, y, prompt, 14, 700, AMARELO, extra=' filter="url(#glow)"'))
-    c.append(F.texto(x0 + largura(prompt, 14, 700) + 12, y, '// uplink stable · signal strong', 12, cor=APAGADO))
-    c.append(f'<rect x="{fim - 8}" y="{y - 10}" width="8" height="14" fill="{AMARELO}" opacity=".9"/>')
-    c.append(f'<line x1="{x0}" y1="{y + 14}" x2="{fim}" y2="{y + 14}" stroke="{VAZIO}"/>')
+    c.append(F.texto(x0 + largura(prompt, 14, 700) + 12, y, '// uplink stable', 12, cor=APAGADO))
+    c.append(f'<line x1="{x0}" y1="{y + 16.5}" x2="{fim}" y2="{y + 16.5}" stroke="{VAZIO}"/>')
 
-    y += 40
-    for linha in quebrar_rico(P['bio'], 13, fim - x0):
-        c.append(rico(F, x0, y, linha, 13))
-        y += 20
-
-    y += 14
-    c.append(secao(F, x0, y, 'CHROME', fim))
-    linhas, y = linhas_rotuladas(F, x0, y + 22, T['stack'])
+    linhas, y = rico_linhas(F, x0, y + 44, P['bio'], 13, fim - x0)
     c += linhas
 
-    extra = T.get('extra')
-    y += 16
-    c.append(secao(F, x0, y, 'GIGS', fim, f'{len(P["gigs"])} active' + (' · 1 soon' if extra else '')))
-    y += 24
-    for g in P['gigs'] + ([extra] if extra else []):
-        cor = AMARELO if g.get('tag') == 'MAIN JOB' else TEXTO
-        c.append(F.texto(x0, y, g['nome'], 13, 700, cor))
-        c.append(F.texto(x0 + largura(g['nome'], 13, 700) + 12, y, '— ' + val(g['resumo']), 12, cor=CINZA))
-        y += 22
-
-    y += 12
-    c.append(secao(F, x0, y, 'COMMS', fim))
-    linhas, y = linhas_rotuladas(F, x0, y + 22, T['comms'])
+    stack = [par for par in T['stack'] if par[0] in IDENTITY_STACK]
+    c.append(secao(F, x0, y + 36, 'CHROME', fim))
+    linhas, y = linhas_rotuladas(F, x0, y + 60, stack)
     c += linhas
 
-    c.append(f'<line x1="{x0}" y1="{y}" x2="{fim}" y2="{y}" stroke="{VAZIO}"/>')
-    c.append(F.texto(x0, y + 18, T['rodape'], 11, cor=APAGADO))
-    H = y + 46
+    c.append(secao(F, x0, y + 36, 'COMMS', fim))
+    linhas, y = linhas_rotuladas(F, x0, y + 60, T['comms'])
+    c += linhas
 
+    h = max(PAD + lado + PAD, y + 20)
     defs = ('<defs><pattern id="scanlines" patternUnits="userSpaceOnUse" width="2" height="3">'
             '<rect width="2" height="1" fill="#ffffff" opacity="0.025"/></pattern>'
             '<filter id="glow" x="-20%" y="-20%" width="140%" height="140%">'
             '<feGaussianBlur stdDeviation="0.6" result="blur"/>'
             '<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>')
-    corpo = (defs + fundo(W, H) + f'<rect width="{W}" height="{H}" fill="url(#scanlines)"/>'
-             + tema.moldura_hud(0, 0, W, H) + ''.join(c))
-    nomes = ', '.join(g['nome'] for g in P['gigs'])
-    return tema.svg(W, H, corpo, F, f'Terminal daniykt@nightcity: {re.sub(r"[*_]{2}", "", P["bio"])} '
-                                    f'Gigs: {nomes}. Contato: {T["comms"][0][1]}.')
+    corpo = defs + ''.join(c) + f'<rect width="{W}" height="{h}" fill="url(#scanlines)"/>'
+    bio = re.sub(r'\*\*|__', '', P['bio'])
+    stack_txt = '; '.join(f'{k}: {v}' for k, v in stack)
+    comms_txt = ', '.join(v for _, v in T['comms'])
+    return tema.card_secao('RUN_01', 'IDENTITY', 1, corpo, h, F,
+                           f'RUN_01 Identity. daniykt@nightcity: {bio} Chrome — {stack_txt}. Comms: {comms_txt}.')
 
 
 # ───────── charsheet ─────────
@@ -410,7 +413,7 @@ def formacao(P):
 def main():
     with open(PERFIL, encoding='utf-8') as f:
         P = json.load(f)
-    tema.salvar('terminal-card.svg', terminal_card(P))
+    tema.salvar('identity.svg', identity(P))
     tema.salvar('charsheet.svg', charsheet(P))
     tema.salvar('journal.svg', journal(P))
 
