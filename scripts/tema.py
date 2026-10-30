@@ -124,7 +124,8 @@ def _woff(peso, chars):
     opts.layout_features = []      # sem ligaduras: só os glifos pedidos
     opts.hinting = False
     opts.notdef_outline = False
-    fonte = TTFont(os.path.join(FONTES, PESOS[peso]))
+    # sem recalcular a data da fonte: mesmo texto → mesmo SVG, sem diff a cada execução
+    fonte = TTFont(os.path.join(FONTES, PESOS[peso]), recalcTimestamp=False)
     s = subset.Subsetter(opts)
     s.populate(unicodes={ord(c) for c in chars} | {32})
     s.subset(fonte)
