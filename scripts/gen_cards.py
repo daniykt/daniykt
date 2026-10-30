@@ -201,7 +201,12 @@ def charsheet(P):
     c.append(F.texto(x, 58, val(P['nome']), 34, 800, AMARELO))
     c.append(F.texto(x, 82, val(P['classe']), 12, 700, MAGENTA, espaco=3))
 
-    y = 116
+    y = 86
+    for linha in tema.quebrar(val(P['bio_curta']), 13, fim - x):
+        y += 20
+        c.append(F.texto(x, y, linha, 13, cor=TEXTO))
+
+    y += 32
     for rot, chave in (('ORIGIN', 'origin'), ('CREW', 'crew'), ('CYBERWARE', 'cyberware'), ('STATUS', 'status')):
         c.append(F.texto(x, y, rot, 11, 700, TEXTO3, espaco=1))
         c.append(F.texto(x + 100, y, val(P[chave]), 13, cor=MAGENTA if rot == 'STATUS' else TEXTO))
@@ -228,7 +233,7 @@ def charsheet(P):
     attr_txt = ', '.join(f'{k} {v}/10' for k, v in attrs.items())
     return tema.card_secao('RUN_02', 'CHARACTER SHEET', 2, ''.join(c), h, F,
                            f'RUN_02 Character sheet. {val(P["nome"])}, {val(P["classe"])}, {val(pers["codigo"])}, ID verified. '
-                           f'Origin {val(P["origin"])}; crew {val(P["crew"])}; cyberware {val(P["cyberware"])}; '
+                           f'{val(P["bio_curta"])} Origin {val(P["origin"])}; crew {val(P["crew"])}; cyberware {val(P["cyberware"])}; '
                            f'status: {val(P["status"])} Attributes: {attr_txt}. “{val(P["citacao"])}”')
 
 
