@@ -8,11 +8,17 @@ Produz um footer 900x150 com:
   - subtítulo 'the ones who do go legend · see you on the net, choom'
   - scanlines CRT
 
-Sem dependências — só stdlib. CSS keyframes funcionam dentro do <img> do GitHub README.
+A JetBrains Mono vai embutida (subset em base64, via tema.Fontes), porque o
+GitHub mostra o SVG como <img> e aí ele não carrega fonte de fora.
+CSS keyframes funcionam dentro do <img> do GitHub README.
 
 uso:  python3 scripts/gen_footer.py
 """
+import html
 import os
+import re
+
+import tema
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'assets', 'footer.svg')
@@ -79,9 +85,13 @@ body = f"""<defs>
 <rect width="{W}" height="{H}" fill="url(#scan)" pointer-events="none"/>
 """
 
+F = tema.Fontes()
+F.usar(html.unescape(re.sub(r'<[^>]+>', '', body)))   # todo texto do corpo, peso normal
+F.usar(TITLE, 800)
+
 svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="never fade away — see you on the net, choom">
 <title>daniykt — edgerunner footer</title>
-<style>{css}</style>
+<style>{F.css()}{css}</style>
 {body}
 </svg>
 '''

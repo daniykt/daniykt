@@ -9,11 +9,17 @@ Produz um header 900x300 com:
   - scanlines CRT + sweep bar descendo
   - status bar com NAVI ● JACKED_IN piscando
 
-Sem dependências — só stdlib. SMIL funciona dentro do <img> do GitHub README.
+A JetBrains Mono vai embutida (subset em base64, via tema.Fontes), porque o
+GitHub mostra o SVG como <img> e aí ele não carrega fonte de fora.
+SMIL funciona dentro do <img> do GitHub README.
 
 uso:  python3 scripts/gen_header.py
 """
+import html
 import os
+import re
+
+import tema
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, '..', 'assets', 'header.svg')
@@ -107,9 +113,13 @@ body = f"""<defs>
 <rect class="sweep" x="0" y="-60" width="{W}" height="60" fill="url(#sweepg)"/>
 """
 
+F = tema.Fontes()
+F.usar(html.unescape(re.sub(r'<[^>]+>', '', body)))   # todo texto do corpo, peso normal
+F.usar(NAME, 900)
+
 svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="daniykt — edgerunner in nightmato">
 <title>daniykt — edgerunner header</title>
-<style>{css}</style>
+<style>{F.css()}{css}</style>
 {body}
 </svg>
 '''
