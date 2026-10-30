@@ -31,7 +31,7 @@ SUB_B = 'see you on the net, choom'
 
 # paleta Edgerunners (CDPR)
 YELLOW, MAGENTA, CYAN = '#FCEE09', '#FF003C', '#00F0FF'
-BG, DIM = '#0a0a0f', '#5c5c6e'
+BG, DIM = '#0a0a0f', '#b8b8c8'   # terciário (contraste >= 4.5:1)
 FONT = "'JetBrains Mono','Fira Code','DejaVu Sans Mono',Menlo,Consolas,monospace"
 # ─────────────────────────────────────────────────────
 
@@ -47,7 +47,7 @@ text {{ font-family: {FONT}; }}
 .bg    {{ fill: {BG}; }}
 .dim   {{ fill: {DIM}; font-size: 11px; letter-spacing: 1px; }}
 .mag   {{ fill: {MAGENTA}; }}
-.sub   {{ fill: #9a9ab0; font-size: 14px; letter-spacing: .5px; }}
+.sub   {{ fill: #c9c9d6; font-size: 14px; letter-spacing: .5px; }}
 .title {{ font-size: 64px; font-weight: 800; letter-spacing: 4px; }}
 .main  {{ fill: {YELLOW}; }}
 .gr    {{ fill: {MAGENTA}; opacity: 0; mix-blend-mode: screen; animation: g1 4s infinite steps(1); }}

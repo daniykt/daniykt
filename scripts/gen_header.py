@@ -33,7 +33,7 @@ QUOTE = '> "wake the f*ck up samurai, we have a city to burn"'
 
 # paleta Edgerunners (CDPR)
 YELLOW, MAGENTA, CYAN = '#FCEE09', '#FF003C', '#00F0FF'
-BG, TEXT, DIM = '#0a0a0f', '#e8e8e8', '#5c5c6e'
+BG, TEXT, DIM = '#0a0a0f', '#e8e8e8', '#b8b8c8'   # terciário (contraste >= 4.5:1)
 FONT = "'JetBrains Mono','Fira Code','DejaVu Sans Mono',Menlo,Consolas,monospace"
 # ─────────────────────────────────────────────────────
 
@@ -62,7 +62,7 @@ text {{ font-family: {FONT}; }}
 .dim  {{ fill: {DIM}; font-size: 12px; letter-spacing: 1px; }}
 .yel  {{ fill: {YELLOW}; }}
 .cmd  {{ fill: {TEXT}; font-size: 15px; }}
-.sub  {{ fill: #9a9ab0; font-size: 14px; letter-spacing: .5px; }}
+.sub  {{ fill: #c9c9d6; font-size: 14px; letter-spacing: .5px; }}
 .name {{ font-size: 108px; font-weight: 900; letter-spacing: -4px; }}
 .main {{ fill: url(#ng); }}
 .gr   {{ fill: {MAGENTA}; opacity: 0; mix-blend-mode: screen; animation: g1 5s infinite steps(1); }}

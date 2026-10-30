@@ -27,8 +27,8 @@ ICONES = os.path.join(tema.HERE, 'icones')
 
 W = 840
 W_GIG, H_GIG, H_PRINT = 412, 330, 150   # gigs secundários
-CLARO = '#b4b4c4'                        # cinza claro dos objetivos
-APAGADO = '#5a5a65'                      # comentários do terminal
+CLARO = tema.TEXTO2                      # secundário: objetivos, citação
+APAGADO = tema.TEXTO3                    # terciário: comentários do terminal
 SLOT = '#101018'                         # fundo dos slots do chrome
 
 ICONE = {
@@ -239,7 +239,7 @@ def journal(P):
         n = sum(1 for j in J if j['tipo'] == tipo)
         if i == 0:
             c.append(f'<rect x="20" y="{y}" width="170" height="36" fill="{AMARELO}"/>')
-            c.append(F.texto(34, y + 23, f'{rotulo} · {n}', 12, 800, FUNDO, espaco=1))
+            c.append(F.texto(34, y + 23, f'{rotulo} · {n}', 12, 800, FUNDO, espaco=1, fundo=AMARELO))
         else:
             c.append(f'<rect x="20.5" y="{y + .5}" width="169" height="35" fill="none" stroke="{BORDA_SEC}"/>')
             c.append(F.texto(34, y + 23, f'{rotulo} · {n}', 12, 700, CINZA, espaco=1))

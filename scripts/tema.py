@@ -6,6 +6,9 @@ Por isso tudo aqui vai embutido no próprio arquivo:
     (WOFF com subset só desses caracteres, via fontTools)
   - largura() / quebrar(): métricas reais da JetBrains Mono pra posicionar e quebrar texto
   - moldura_hud(): a moldura assinatura (borda fina + 4 cantos em L amarelos)
+  - barra_titulo() / card_secao(): faixa '// RUN_0X :: NOME ──── 0X / 07' e o card
+    de seção completo (moldura + barra + corpo)
+  - contraste(): todo texto passa por Fontes.texto(), que exige 4.5:1 contra o fundo
   - img_base64(): imagem redimensionada em JPEG q80 como data URI
   - svg(): monta o documento com role="img", <title> e aria-label
 
@@ -31,7 +34,8 @@ FONTES = os.path.join(HERE, 'fontes')
 
 # ───────── paleta Edgerunners ─────────
 AMARELO, MAGENTA, CIANO = '#FCEE09', '#FF003C', '#00F0FF'   # ciano só pro glitch
-FUNDO, TEXTO, CINZA = '#0a0a0f', '#e8e8e8', '#8b8b9e'
+FUNDO, TEXTO, CINZA = '#0a0a0f', '#e8e8e8', '#8b8b9e'      # CINZA só em linhas/bordas, nunca em texto
+BRANCO, TEXTO2, TEXTO3 = '#ffffff', '#c9c9d6', '#b8b8c8'   # texto principal / secundário / terciário
 VERDE = '#3fb950'                                            # só pra "concluído"
 BORDA_SEC = '#3a1622'      # borda dos cards secundários
 VAZIO = '#2a2a35'          # blocos vazios, divisórias
@@ -40,11 +44,25 @@ CHIP = '#4a4410'           # borda de chip / slot instalado
 FAMILIA = "'JetBrains Mono',monospace"
 PESOS = {400: 'JetBrainsMono-Regular.ttf', 700: 'JetBrainsMono-Bold.ttf', 800: 'JetBrainsMono-ExtraBold.ttf'}
 CANTO, CANTO_E = 16, 2     # cantos em L: 16px de braço, 2px de espessura
+TITULO_H, PAD = 60, 24     # altura da barra de título e padding lateral das seções
+CONTRASTE_MIN = 4.5
 
 
 def esc(s):
     return (str(s).replace('&', '&amp;').replace('<', '&lt;')
             .replace('>', '&gt;').replace('"', '&quot;'))
+
+
+def _luminancia(cor):
+    f = lambda c: c / 12.92 if c <= .04045 else ((c + .055) / 1.055) ** 2.4
+    r, g, b = (int(cor[i:i + 2], 16) / 255 for i in (1, 3, 5))
+    return .2126 * f(r) + .7152 * f(g) + .0722 * f(b)
+
+
+def contraste(cor, fundo=FUNDO):
+    """Razão de contraste WCAG entre duas cores #rrggbb."""
+    a, b = sorted((_luminancia(cor), _luminancia(fundo)), reverse=True)
+    return (a + .05) / (b + .05)
 
 
 def peso_real(peso):
@@ -95,8 +113,10 @@ class Fontes:
         self.usados[peso_real(peso)].update(str(texto))
         return texto
 
-    def texto(self, x, y, s, tam=13, peso=400, cor=TEXTO, anchor=None, espaco=0, extra=''):
-        """<text> já registrado nas fontes."""
+    def texto(self, x, y, s, tam=13, peso=400, cor=TEXTO, anchor=None, espaco=0, extra='', fundo=FUNDO):
+        """<text> já registrado nas fontes. fundo=None só pra texto decorativo (sem checar contraste)."""
+        if fundo and contraste(cor, fundo) < CONTRASTE_MIN:
+            raise ValueError(f'contraste {contraste(cor, fundo):.2f}:1 de {cor} sobre {fundo} em {s!r}')
         self.usar(s, peso)
         a = f' text-anchor="{anchor}"' if anchor else ''
         ls = f' letter-spacing="{espaco}"' if espaco else ''
@@ -145,6 +165,40 @@ def moldura_hud(x, y, w, h, borda=MAGENTA):
     return (f'<rect x="{x + .5:g}" y="{y + .5:g}" width="{w - 1:g}" height="{h - 1:g}" '
             f'fill="none" stroke="{borda}" stroke-width="1"/>'
             f'<path d="{d}" fill="{AMARELO}"/>')
+
+
+def barra_titulo(run, nome, indice, total=7, subtitulo=None, *, F, w=840):
+    """Faixa de 60px: '// RUN_0X ::' NOME subtítulo ──────── 0X / 07."""
+    y, x = 37, PAD
+    c = [F.texto(x, y, f'// {run} ::', 14, 700, MAGENTA)]
+    x += largura(f'// {run} ::', 14, 700) + 14
+    c.append(F.texto(x, y, nome, 22, 800, BRANCO, espaco=3))
+    x += largura(nome, 22, 800, 3) + 11
+    if subtitulo:
+        c.append(F.texto(x, y, subtitulo, 12, cor=TEXTO2))
+        x += largura(subtitulo, 12) + 16
+    else:
+        x += 5
+    contador = f'{indice:02d} / {total:02d}'
+    fim = w - PAD - largura(contador, 12) - 16
+    if fim > x:
+        c.append(f'<line x1="{x:g}" y1="31.5" x2="{fim:g}" y2="31.5" stroke="{BORDA_SEC}"/>')
+    c.append(F.texto(w - PAD, y, contador, 12, cor=TEXTO3, anchor='end'))
+    return ''.join(c)
+
+
+def card_secao(run, nome, indice, corpo, altura_corpo, F, titulo, *,
+               w=840, total=7, subtitulo=None, borda=MAGENTA, css=''):
+    """Seção inteira num SVG: fundo + barra de título + divisória + corpo + moldura.
+    O corpo usa coordenadas locais (y=0 logo abaixo da divisória). Altura total = 60 + 1 + altura_corpo."""
+    H = TITULO_H + (1 + altura_corpo if altura_corpo else 0)
+    partes = [f'<rect width="{w}" height="{H}" fill="{FUNDO}"/>',
+              barra_titulo(run, nome, indice, total, subtitulo, F=F, w=w)]
+    if altura_corpo:
+        partes.append(f'<line x1="0" y1="{TITULO_H + .5}" x2="{w}" y2="{TITULO_H + .5}" stroke="{VAZIO}"/>')
+        partes.append(f'<g transform="translate(0 {TITULO_H + 1})">{corpo}</g>')
+    partes.append(moldura_hud(0, 0, w, H, borda))
+    return svg(w, H, ''.join(partes), F, titulo, css)
 
 
 def img_base64(caminho, largura, altura=None, escala=2):
