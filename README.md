@@ -67,9 +67,7 @@
   <a href="https://github.com/daniykt"><img src="./assets/icons/github.svg" width="22" alt="GitHub" /></a>
   &nbsp;&nbsp;
   <a href="mailto:daniykt7@gmail.com"><img src="./assets/icons/mail.svg" width="22" alt="E-mail" /></a>
-  &nbsp;&nbsp;
-  <!-- TODO: URL do portfólio -->
-  <a href="#"><img src="./assets/icons/portfolio.svg" width="22" alt="Portfólio" /></a>
+  <!-- TODO: voltar com o ícone do portfólio quando ele existir -->
 </p>
 
 <!-- Footer animado (gerado por scripts/gen_footer.py) -->
