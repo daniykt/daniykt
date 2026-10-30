@@ -27,7 +27,7 @@
     { "tipo": "MAIN JOB", "tracked": true, "titulo": "Fechar o MVP do Mosaic", "objetivo": "Menos feature, mais acabamento." },
     { "tipo": "SIDE JOB", "titulo": "Primeiro estágio em front-end", "objetivo": "Deixar o portfólio pronto pra mostrar." },
     { "tipo": "SIDE JOB", "titulo": "Figma → código sem perder detalhe", "objetivo": "O que eu desenho é o que vai pro ar." },
-    { "tipo": "GIG", "titulo": "Componentes React + TS legíveis", "objetivo": "Um componente, uma responsabilidade." }
+    { "tipo": "GIG", "titulo": "Estudando design com livros", "objetivo": "Da teoria direto pra prática." }
   ],
 
   "gigs": [

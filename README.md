@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/journal.svg" width="100%" alt="RUN_03 Journal, foco no momento. Main job (tracked): Fechar o MVP do Mosaic — Menos feature, mais acabamento. Side job: Primeiro estágio em front-end — Deixar o portfólio pronto pra mostrar. Side job: Figma → código sem perder detalhe — O que eu desenho é o que vai pro ar. Gig: Componentes React + TS legíveis — Um componente, uma responsabilidade." />
+  <img src="./assets/journal.svg" width="100%" alt="RUN_03 Journal, foco no momento. Main job (tracked): Fechar o MVP do Mosaic — Menos feature, mais acabamento. Side job: Primeiro estágio em front-end — Deixar o portfólio pronto pra mostrar. Side job: Figma → código sem perder detalhe — O que eu desenho é o que vai pro ar. Gig: Estudando design com livros — Da teoria direto pra prática." />
 </p>
 
 <p align="center">
