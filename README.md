@@ -35,7 +35,7 @@
   <a href="https://github.com/daniykt/Mosaic"><img src="./assets/gig-mosaic.svg" width="100%" alt="Gig 01 · solo · main job: Mosaic. Portfólio visual em formato de mosaico, uma alternativa ao Linktree/Bento.me. Stack: React, Vite, TypeScript, Tailwind. Abrir repo." /></a>
   <br />
   <a href="https://github.com/daniykt/war-editor-portfolio"><img src="./assets/gig-war-editor.svg" width="49%" alt="Gig 02 · solo · estudo: War Editor. Redesign do portfólio de um editor de vídeo, um estudo de UI cinematográfica. Stack: Figma, React. Abrir repo." /></a>
-  <a href="https://github.com/daniykt/Pesque-Fale"><img src="./assets/gig-pesque-fale.svg" width="49%" alt="Gig 03 · crew de 5 · FATEC: Pesque &amp; Fale. Rede social para pescadores, feita em time de 5 na FATEC. Minha parte: [sua parte no projeto]. Stack: Flutter, Supabase. Abrir repo." /></a>
+  <a href="https://github.com/daniykt/Pesque-Fale"><img src="./assets/gig-pesque-fale.svg" width="49%" alt="Gig 03 · crew de 5 · FATEC: Pesque &amp; Fale. Rede social para pescadores, feita em time de 5 na FATEC. Minha parte: Front-end principal, design e QA. Stack: Flutter, Supabase. Abrir repo." /></a>
 </p>
 
 <p align="center">

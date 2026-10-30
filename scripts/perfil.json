@@ -56,7 +56,7 @@
       "tag": "FATEC",
       "repo": "https://github.com/daniykt/Pesque-Fale",
       "descricao": "Rede social para pescadores, feita em time de 5 na FATEC.",
-      "minha_parte": "TODO: sua parte no projeto",
+      "minha_parte": "Front-end principal, design e QA.",
       "stack": ["Flutter", "Supabase"]
     }
   ],

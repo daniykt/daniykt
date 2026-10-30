@@ -333,7 +333,7 @@ def gig_card(P, i, h_min):
         c.append(F.texto(PAD, H - 24, 'ABRIR REPO ↗', 12, 700, AMARELO, espaco=2))
 
     corpo = fundo(w, H) + ''.join(c) + tema.moldura_hud(0, 0, w, H, BORDA_SEC)
-    extra = f' Minha parte: {val(g["minha_parte"])}.' if 'minha_parte' in g else ''
+    extra = f' Minha parte: {val(g["minha_parte"]).rstrip(".")}.' if 'minha_parte' in g else ''
     titulo = (f'Gig {n} · {val(g["equipe"])} · {val(g["tag"])}: {val(g["nome"])}. '
               f'{val(g["descricao"])}{extra} Stack: {", ".join(g["stack"])}. Abrir repo.')
     return tema.svg(w, H, corpo, F, titulo), H
