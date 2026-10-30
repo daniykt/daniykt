@@ -66,6 +66,7 @@
     }
   ],
 
+  "chrome_texto": "Uso **React + TypeScript** pra interface e **Tailwind** pra estilo. Abro o **Figma** antes do editor, e quando o projeto precisa de back-end recorro a **Node** ou **Supabase**.",
   "chrome": [
     { "grupo": "FRONTAL CORTEX", "itens": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vite", "Tailwind"] },
     { "grupo": "NERVOUS SYSTEM", "itens": ["Node.js", "Supabase", "PostgreSQL"] },

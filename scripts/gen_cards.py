@@ -187,26 +187,27 @@ def identity(P):
 # ───────── charsheet ─────────
 
 def charsheet(P):
+    """RUN_02: retrato à esquerda, ficha + atributos + citação à direita."""
     F, c = tema.Fontes(), []
-    px, py, ps = 30, 30, 250
+    px, py, ps = PAD, PAD, 250
     pers = P['personagem']
     c.append(imagem(F, pers['imagem'], px, py, ps, ps, '[retrato]', 'ph-retrato'))
     c.append(f'<rect x="{px + .5}" y="{py + .5}" width="{ps - 1}" height="{ps - 1}" fill="none" stroke="{MAGENTA}" stroke-width="1.5"/>')
     c.append(F.texto(px, py + ps + 22, val(pers['codigo']), 12, 700, MAGENTA, espaco=1))
-    c.append(F.texto(px + ps, py + ps + 22, 'ID VERIFIED ✓', 11, cor=CINZA, anchor='end', espaco=1))
+    c.append(F.texto(px + ps, py + ps + 22, 'ID VERIFIED ✓', 11, cor=TEXTO3, anchor='end', espaco=1))
 
-    x, fim = 310, W - 30
-    c.append(F.texto(x, 64, val(P['nome']), 34, 800, AMARELO))
-    c.append(F.texto(x, 88, val(P['classe']), 12, 700, MAGENTA, espaco=3))
+    x, fim = px + ps + 30, W - PAD
+    c.append(F.texto(x, 58, val(P['nome']), 34, 800, AMARELO))
+    c.append(F.texto(x, 82, val(P['classe']), 12, 700, MAGENTA, espaco=3))
 
-    y = 124
+    y = 116
     for rot, chave in (('ORIGIN', 'origin'), ('CREW', 'crew'), ('CYBERWARE', 'cyberware'), ('STATUS', 'status')):
-        c.append(F.texto(x, y, rot, 11, 700, CINZA, espaco=1))
+        c.append(F.texto(x, y, rot, 11, 700, TEXTO3, espaco=1))
         c.append(F.texto(x + 100, y, val(P[chave]), 13, cor=MAGENTA if rot == 'STATUS' else TEXTO))
         y += 22
 
     y += 6
-    c.append(F.texto(x, y, 'ATTRIBUTES', 11, 700, CINZA, espaco=2))
+    c.append(F.texto(x, y, 'ATTRIBUTES', 11, 700, TEXTO3, espaco=2))
     attrs = {k: v for k, v in P['atributos'].items() if not k.startswith('_')}
     for nome, n in attrs.items():
         y += 19
@@ -214,41 +215,41 @@ def charsheet(P):
         c.append(F.texto(x, y, nome, 11, 700, TEXTO, espaco=1))
         for i in range(10):
             c.append(f'<rect x="{x + 60 + i * 20}" y="{y - 9}" width="16" height="10" fill="{cor if i < n else VAZIO}"/>')
-        c.append(F.texto(x + 270, y, f'{n}/10', 11, cor=CINZA))
+        c.append(F.texto(x + 270, y, f'{n}/10', 11, cor=TEXTO3))
 
     y += 16
     c.append(f'<line x1="{x}" y1="{y}" x2="{fim}" y2="{y}" stroke="{VAZIO}"/>')
-    citacao = tema.quebrar(f'“{val(P["citacao"])}”', 12, fim - x)
-    for linha in citacao:
+    for linha in tema.quebrar(f'“{val(P["citacao"])}”', 12, fim - x):
         y += 20
         c.append(F.texto(x, y, linha, 12, cor=CLARO, extra=' font-style="italic"'))
-    H = max(330, y + 24)
+    h = max(py + ps + 22 + 20, y + 24)
 
-    corpo = fundo(W, H) + tema.moldura_hud(0, 0, W, H) + ''.join(c)
     attr_txt = ', '.join(f'{k} {v}/10' for k, v in attrs.items())
-    return tema.svg(W, H, corpo, F,
-                    f'Ficha de personagem: {val(P["nome"])}, {val(P["classe"])}. Origin {val(P["origin"])}; '
-                    f'crew {val(P["crew"])}; cyberware {val(P["cyberware"])}; status: {val(P["status"])} '
-                    f'Atributos: {attr_txt}. Citação: {val(P["citacao"])}.')
+    return tema.card_secao('RUN_02', 'CHARACTER SHEET', 2, ''.join(c), h, F,
+                           f'RUN_02 Character sheet. {val(P["nome"])}, {val(P["classe"])}, {val(pers["codigo"])}, ID verified. '
+                           f'Origin {val(P["origin"])}; crew {val(P["crew"])}; cyberware {val(P["cyberware"])}; '
+                           f'status: {val(P["status"])} Attributes: {attr_txt}. “{val(P["citacao"])}”')
 
 
 # ───────── journal ─────────
 
 def journal(P):
+    """RUN_03: abas à esquerda (190px), itens do journal à direita."""
     F, c, J = tema.Fontes(), [], P['journal']
     abas = (('MAIN JOB', 'MAIN JOB'), ('SIDE JOBS', 'SIDE JOB'), ('GIGS', 'GIG'))
-    y = 24
+    y = PAD
     for i, (rotulo, tipo) in enumerate(abas):
         n = sum(1 for j in J if j['tipo'] == tipo)
         if i == 0:
-            c.append(f'<rect x="20" y="{y}" width="170" height="36" fill="{AMARELO}"/>')
-            c.append(F.texto(34, y + 23, f'{rotulo} · {n}', 12, 800, FUNDO, espaco=1, fundo=AMARELO))
+            c.append(f'<rect x="{PAD}" y="{y}" width="170" height="36" fill="{AMARELO}"/>')
+            c.append(F.texto(PAD + 14, y + 23, f'{rotulo} · {n}', 12, 800, FUNDO, espaco=1, fundo=AMARELO))
         else:
-            c.append(f'<rect x="20.5" y="{y + .5}" width="169" height="35" fill="none" stroke="{BORDA_SEC}"/>')
-            c.append(F.texto(34, y + 23, f'{rotulo} · {n}', 12, 700, CINZA, espaco=1))
+            c.append(f'<rect x="{PAD + .5}" y="{y + .5}" width="169" height="35" fill="none" stroke="{BORDA_SEC}"/>')
+            c.append(F.texto(PAD + 14, y + 23, f'{rotulo} · {n}', 12, 700, TEXTO3, espaco=1))
         y += 46
+    fim_abas = y - 10
 
-    x, y = 236, 50
+    x, y = PAD + 190 + 26, 44
     for j in J:
         cor, cheio = {'MAIN JOB': (AMARELO, True), 'SIDE JOB': (MAGENTA, False)}.get(j['tipo'], (CINZA, False))
         c.append(losango(x + 6, y - 5, 6, cor, cheio))
@@ -262,12 +263,13 @@ def journal(P):
         c.append(f'<rect x="{x + 22.5}" y="{y + 11.5}" width="9" height="9" fill="none" stroke="{CLARO}"/>')
         c.append(F.texto(x + 38, y + 20, val(j['objetivo']), 12, cor=CLARO))
         y += 62
-    H = max(300, y - 62 + 44)
+    h = max(fim_abas + PAD, y - 62 + 20 + 28)
 
-    corpo = (fundo(W, H) + tema.moldura_hud(0, 0, W, H)
-             + f'<line x1="210" y1="20" x2="210" y2="{H - 20}" stroke="{VAZIO}"/>' + ''.join(c))
-    itens = ' '.join(f'{j["tipo"]}: {val(j["titulo"])} (objetivo: {val(j["objetivo"])}).' for j in J)
-    return tema.svg(W, H, corpo, F, f'Journal, foco no momento. {itens}')
+    c.append(f'<line x1="{PAD + 190.5}" y1="{PAD}" x2="{PAD + 190.5}" y2="{h - PAD}" stroke="{VAZIO}"/>')
+    itens = ' '.join(f'{j["tipo"]}{" (tracked)" if j.get("tracked") else ""}: {val(j["titulo"])} — {val(j["objetivo"])}'
+                     for j in J)
+    return tema.card_secao('RUN_03', 'JOURNAL', 3, ''.join(c), h, F,
+                           f'RUN_03 Journal, foco no momento. {itens}', subtitulo='foco no momento')
 
 
 # ───────── gigs ─────────
@@ -321,30 +323,37 @@ def gig_card(P, i, h_min):
 # ───────── chrome ─────────
 
 def chrome(P):
+    """RUN_05: prosa da stack, divisória e o inventário de cyberware com os logos."""
     F, c = tema.Fontes(), []
-    c.append(F.texto(30, 40, 'RIPPERDOC // CYBERWARE INVENTORY', 14, 800, AMARELO, espaco=1))
-    lx = W - 30
-    c.append(F.texto(lx, 40, 'na fila', 11, cor=CINZA, anchor='end'))
-    lx -= largura('na fila', 11) + 16
-    c.append(f'<rect x="{lx + .5:g}" y="31.5" width="9" height="9" fill="none" stroke="{MAGENTA}" stroke-dasharray="2 2"/>')
-    lx -= 14
-    c.append(F.texto(lx, 40, 'instalado', 11, cor=CINZA, anchor='end'))
-    lx -= largura('instalado', 11) + 16
-    c.append(f'<rect x="{lx:g}" y="31" width="10" height="10" fill="{AMARELO}"/>')
+    linhas, y = rico_linhas(F, PAD, 38, P['chrome_texto'], 13, W - 2 * PAD, passo=21)
+    c += linhas
+    y += 22
+    c.append(f'<line x1="{PAD}" y1="{y + .5}" x2="{W - PAD}" y2="{y + .5}" stroke="{VAZIO}"/>')
 
-    y = 64
+    y += 36
+    c.append(F.texto(PAD, y, 'RIPPERDOC // CYBERWARE INVENTORY', 14, 800, AMARELO, espaco=1))
+    lx = W - PAD
+    c.append(F.texto(lx, y, 'na fila', 11, cor=TEXTO3, anchor='end'))
+    lx -= largura('na fila', 11) + 16
+    c.append(f'<rect x="{lx + .5:g}" y="{y - 8.5}" width="9" height="9" fill="none" stroke="{MAGENTA}" stroke-dasharray="2 2"/>')
+    lx -= 14
+    c.append(F.texto(lx, y, 'instalado', 11, cor=TEXTO3, anchor='end'))
+    lx -= largura('instalado', 11) + 16
+    c.append(f'<rect x="{lx:g}" y="{y - 9}" width="10" height="10" fill="{AMARELO}"/>')
+
+    y += 24
     for grupo in P['chrome']:
         fila = grupo.get('fila')
         if fila:
             y += 6
-            c.append(f'<line x1="30" y1="{y}" x2="{W - 30}" y2="{y}" stroke="{VAZIO}"/>')
+            c.append(f'<line x1="{PAD}" y1="{y + .5}" x2="{W - PAD}" y2="{y + .5}" stroke="{VAZIO}"/>')
             y += 20
         for k, parte in enumerate(grupo['grupo'].split(' ', 1)):
-            c.append(F.texto(30, y + 40 + k * 15, parte, 11, 700, MAGENTA, espaco=1))
+            c.append(F.texto(PAD, y + 40 + k * 15, parte, 11, 700, MAGENTA, espaco=1))
         borda = (f'stroke="{MAGENTA}" stroke-dasharray="4 3"' if fila else f'stroke="{CHIP}"')
-        topo, logo, nome_cor = (MAGENTA, CINZA, CINZA) if fila else (AMARELO, AMARELO, TEXTO)
+        topo, logo, nome_cor = (MAGENTA, CINZA, TEXTO3) if fila else (AMARELO, AMARELO, TEXTO)
         for n, item in enumerate(grupo['itens']):
-            sx = 140 + n * 96
+            sx = PAD + 116 + n * 96
             c.append(f'<rect x="{sx + .5}" y="{y + .5}" width="85" height="85" fill="{SLOT}" {borda}/>')
             c.append(f'<rect x="{sx}" y="{y}" width="86" height="3" fill="{topo}"/>')
             if item in ICONE:
@@ -352,62 +361,67 @@ def chrome(P):
             tam = 10
             while largura(item, tam) > 78:
                 tam -= .5
-            c.append(F.texto(sx + 43, y + 72, item, tam, cor=nome_cor, anchor='middle'))
+            c.append(F.texto(sx + 43, y + 72, item, tam, cor=nome_cor, anchor='middle', fundo=SLOT))
         y += 100
-    H = y + 10
+    h = y - 14 + PAD
 
-    corpo = fundo(W, H) + tema.moldura_hud(0, 0, W, H) + ''.join(c)
+    prosa = re.sub(r'\*\*|__', '', P['chrome_texto'])
     grupos = ' '.join(f'{g["grupo"]}: {", ".join(g["itens"])}.' for g in P['chrome'])
-    return tema.svg(W, H, corpo, F, f'Ripperdoc, inventário de cyberware (stack). {grupos}')
+    return tema.card_secao('RUN_05', 'CHROME INSTALADO', 5, ''.join(c), h, F,
+                           f'RUN_05 Chrome instalado. {prosa} Ripperdoc // cyberware inventory — {grupos}')
 
 
 # ───────── formação ─────────
 
 def formacao(P):
+    """RUN_06: duas colunas (instalado / instalando) + slot vazio pra certificados."""
     F, c = tema.Fontes(), []
     cursos = [f for f in P['formacao'] if f['status'] != 'slot']
     slots = [f for f in P['formacao'] if f['status'] == 'slot']
-    cw, gap = 375, 30
+    cw = 375
+    gap = W - 2 * PAD - 2 * cw
     fundo_col = 0
     for k, f in enumerate(cursos[:2]):
-        x = 30 + k * (cw + gap)
+        x = PAD + k * (cw + gap)
         feito = f['status'] == 'instalado'
         cor = VERDE if feito else AMARELO
-        c.append(f'<rect x="{x}" y="35" width="10" height="10" fill="{cor}"/>')
-        c.append(F.texto(x + 18, 44, 'INSTALADO' if feito else 'INSTALANDO', 12, 700, cor, espaco=2))
-        c.append(F.texto(x + cw, 44, f'{f["inicio"]} → {f["fim"]}', 12, cor=CINZA, anchor='end'))
+        c.append(f'<rect x="{x}" y="27" width="10" height="10" fill="{cor}"/>')
+        c.append(F.texto(x + 18, 36, 'INSTALADO' if feito else 'INSTALANDO', 12, 700, cor, espaco=2))
+        c.append(F.texto(x + cw, 36, f'{f["inicio"]} → {f["fim"]}', 12, cor=TEXTO3, anchor='end'))
         if feito:
-            c.append(f'<rect x="{x}" y="60" width="{cw}" height="3" fill="{VERDE}"/>')
+            c.append(f'<rect x="{x}" y="52" width="{cw}" height="3" fill="{VERDE}"/>')
         else:
             atual, total = f['semestre'], f['semestres']
             bw = (cw - (total - 1) * 6) / total
             for s in range(total):
                 cor_s = AMARELO if s < atual - 1 else MAGENTA if s == atual - 1 else VAZIO
-                c.append(f'<rect x="{x + s * (bw + 6):g}" y="56" width="{bw:g}" height="10" fill="{cor_s}"/>')
-        y = 74
+                c.append(f'<rect x="{x + s * (bw + 6):g}" y="48" width="{bw:g}" height="10" fill="{cor_s}"/>')
+        y = 66
         for linha in tema.quebrar(val(f['curso']), 14, cw, 700):
             y += 20
             c.append(F.texto(x, y, linha, 14, 700, TEXTO))
         escola = val(f['escola']) + ('' if feito else f' · semestre {f["semestre"]} de {f["semestres"]}')
         y += 20
-        c.append(F.texto(x, y, escola, 12, cor=CINZA))
+        c.append(F.texto(x, y, escola, 12, cor=TEXTO2))
         fundo_col = max(fundo_col, y)
-    c.append(f'<line x1="{W / 2:g}" y1="30" x2="{W / 2:g}" y2="{fundo_col + 6}" stroke="{VAZIO}"/>')
+    c.append(f'<line x1="{W / 2 + .5:g}" y1="{PAD}" x2="{W / 2 + .5:g}" y2="{fundo_col + 6}" stroke="{VAZIO}"/>')
 
-    y = fundo_col + 28
+    y = fundo_col + 26
     for f in slots:
-        c.append(f'<rect x="30.5" y="{y + .5}" width="{W - 61}" height="49" fill="none" stroke="{CINZA}" '
+        c.append(f'<rect x="{PAD + .5}" y="{y + .5}" width="{W - 2 * PAD - 1}" height="49" fill="none" stroke="{CINZA}" '
                  f'stroke-opacity=".6" stroke-dasharray="6 4"/>')
-        c.append(F.texto(50, y + 30, 'EMPTY SLOT', 12, 700, CINZA, espaco=2))
-        c.append(F.texto(50 + largura('EMPTY SLOT', 12, 700, 2) + 16, y + 30, val(f['texto']), 12, cor=CINZA))
+        c.append(F.texto(PAD + 20, y + 30, 'EMPTY SLOT', 12, 700, TEXTO3, espaco=2))
+        c.append(F.texto(PAD + 20 + largura('EMPTY SLOT', 12, 700, 2) + 16, y + 30, val(f['texto']), 12, cor=TEXTO3))
         y += 62
-    H = y + 18
+    h = y - 12 + PAD
 
-    corpo = fundo(W, H) + tema.moldura_hud(0, 0, W, H) + ''.join(c)
-    desc = ' '.join(f'{f["curso"]}, {f["escola"]}, {f["inicio"]} a {f["fim"]}: '
-                    f'{"instalado (concluído)" if f["status"] == "instalado" else "instalando, semestre %d de %d" % (f["semestre"], f["semestres"])}.'
+    desc = ' '.join(f'{"Instalado" if f["status"] == "instalado" else "Instalando"} ({f["inicio"]} → {f["fim"]}): '
+                    f'{val(f["curso"])}, {val(f["escola"])}'
+                    f'{"" if f["status"] == "instalado" else " · semestre %d de %d" % (f["semestre"], f["semestres"])}.'
                     for f in cursos)
-    return tema.svg(W, H, corpo, F, f'Formação. {desc} Slot vazio: {" ".join(val(s["texto"]) for s in slots)}.')
+    return tema.card_secao('RUN_06', 'RIPPERDOC LOG', 6, ''.join(c), h, F,
+                           f'RUN_06 Ripperdoc log, formação. {desc} Empty slot {" ".join(val(s["texto"]) for s in slots)}.',
+                           subtitulo='formação')
 
 
 def main():
