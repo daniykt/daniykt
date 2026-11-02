@@ -53,10 +53,10 @@
     {
       "id": "pesque-fale",
       "nome": "Pesque & Fale",
-      "equipe": "CREW DE 5",
+      "equipe": "CREW DE 7",
       "tag": "FATEC",
       "repo": "https://github.com/daniykt/Pesque-Fale",
-      "descricao": "Rede social para pescadores, feita em time de 5 na FATEC.",
+      "descricao": "Rede social para pescadores, feita em time de 7 na FATEC.",
       "minha_parte": "Front-end principal, design e QA.",
       "stack": ["Flutter", "Supabase"]
     }
